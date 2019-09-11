@@ -25,7 +25,7 @@ namespace MenuTest.Entrees
         {
             TRexKingBurger trex = new TRexKingBurger();
             List<string> ingredients = trex.Ingredients;
-            Assert.Contains<string>("Whole Wheat Bun", ingredients);
+            Assert.Contains<string>("Whole-Wheat Bun", ingredients);
             // Should be three patties
             int count = 0;
             foreach(string ingredient in ingredients)

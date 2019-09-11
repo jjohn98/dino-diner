@@ -25,7 +25,7 @@ namespace MenuTest.Entrees
         {
             SteakosaurusBurger sb = new SteakosaurusBurger();
             List<string> ingredients = sb.Ingredients;
-            Assert.Contains<string>("Whole Wheat Bun", ingredients);
+            Assert.Contains<string>("Whole-Wheat Bun", ingredients);
             Assert.Contains<string>("Steakburger Pattie", ingredients);
             Assert.Contains<string>("Pickle", ingredients);
             Assert.Contains<string>("Ketchup", ingredients);

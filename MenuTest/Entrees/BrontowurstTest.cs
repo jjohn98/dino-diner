@@ -25,7 +25,7 @@ namespace MenuTest.Entrees
         {
             Brontowurst bw = new Brontowurst();
             List<string> ingredients = bw.Ingredients;
-            Assert.Contains<string>("Whole Wheat Bun", ingredients);
+            Assert.Contains<string>("Whole-Wheat Bun", ingredients);
             Assert.Contains<string>("Brautwurst", ingredients);
             Assert.Contains<string>("Peppers", ingredients);
             Assert.Contains<string>("Onion", ingredients);
