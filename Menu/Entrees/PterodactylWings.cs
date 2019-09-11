@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
-    class PterodactylWings
+    public class PterodactylWings
     {
         private bool sauce = true;
 

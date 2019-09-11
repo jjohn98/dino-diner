@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
-    class TRexKingBurger
+    public class TRexKingBurger
     {
         private bool lettuce = true;
         private bool tomato = true;

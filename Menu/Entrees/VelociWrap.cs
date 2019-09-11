@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
-    class VelociWrap
+    public class VelociWrap
     {
         private bool lettuce = true;
         private bool dressing = true;
