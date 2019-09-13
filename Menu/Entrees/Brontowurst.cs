@@ -1,4 +1,8 @@
-﻿using System;
+﻿///DinoNuggets.cs
+///Jack Johnson
+///9-11-19
+///Class for storing information about the brontowurst menu item.
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -19,7 +23,7 @@ namespace DinoDiner.Menu.Entrees
             {
                 List<string> ingredients = new List<string>() { "Brautwurst" };
                 if (bun) ingredients.Add("Whole-Wheat Bun");
-                if (onions) ingredients.Add("Onions");
+                if (onions) ingredients.Add("Onion");
                 if (peppers) ingredients.Add("Peppers");
                 return ingredients;
             }

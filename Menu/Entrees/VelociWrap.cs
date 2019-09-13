@@ -1,4 +1,8 @@
-﻿using System;
+﻿///DinoNuggets.cs
+///Jack Johnson
+///9-11-19
+///Class for storing information about the VelociWrap menu item.
+using System;
 using System.Collections.Generic;
 using System.Text;
 

@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿///DinoNuggets.cs
+///Jack Johnson
+///9-11-19
+///Class for storing information about the Prehistoric PB&J menu item.
+using System.Collections.Generic;
 
 namespace DinoDiner.Menu.Entrees
 {
