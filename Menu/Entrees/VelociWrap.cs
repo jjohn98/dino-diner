@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Class for storing the information about the VelociWrap menu item.
     /// </summary>
-    public class VelociWrap
+    public class VelociWrap : Entree
     {
         /// <summary>
         /// Stores the value which determines whether or not the item has lettuce.
@@ -29,25 +29,6 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         private bool cheese = true;
 
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        /// <summary>
-        /// This stores the ingredients for the item which changes depending on which parts of the item the customer removes.
-        /// </summary>
-        public List<string> Ingredients
-        {
-            get
-            {
-                List<string> ingredients = new List<string>() { "Chicken Breast" };
-                if (tortilla) ingredients.Add("Flour Tortilla");
-                if (lettuce) ingredients.Add("Romaine Lettuce");
-                if (dressing) ingredients.Add("Caesar Dressing");
-                if (cheese) ingredients.Add("Parmesan Cheese");
-                return ingredients;
-            }
-        }
-
         /// <summary>
         /// Constructor which initializes the default price and calories of the item.
         /// </summary>
@@ -55,6 +36,11 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 6.86;
             this.Calories = 356;
+            Ingredients.Add("Chicken Breast");
+            if (tortilla) Ingredients.Add("Flour Tortilla");
+            if (lettuce) Ingredients.Add("Romaine Lettuce");
+            if (dressing) Ingredients.Add("Caesar Dressing");
+            if (cheese) Ingredients.Add("Parmesan Cheese");
         }
 
         /// <summary>
@@ -62,7 +48,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldTortilla()
         {
-            this.tortilla = false;
+            Ingredients.Remove("Tortilla");
         }
 
         /// <summary>
@@ -70,7 +56,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldDressing()
         {
-            this.dressing = false;
+            Ingredients.Remove("Caesar Dressing");
         }
 
         /// <summary>
@@ -78,7 +64,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldLettuce()
         {
-            this.lettuce = false;
+            Ingredients.Remove("Romaine Lettuce");
         }
 
         /// <summary>
@@ -86,7 +72,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldCheese()
         {
-            this.cheese = false;
+            Ingredients.Remove("Parmesan Cheese");
         }
     }
 }

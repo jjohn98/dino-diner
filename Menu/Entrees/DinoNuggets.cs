@@ -10,20 +10,17 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Class for storing information about the dino nuggets menu item.
     /// </summary>
-    public class DinoNuggets
+    public class DinoNuggets : Entree
     {
         /// <summary>
         /// Stores the value which holds the number of nuggets the customer orders.
         /// </summary>
         private int nuggetCount = 6;
 
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
         /// <summary>
         /// This stores the ingredients for the item which changes depending on how many nuggets the customer orders.
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

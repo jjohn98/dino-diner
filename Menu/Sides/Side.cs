@@ -1,11 +1,14 @@
-﻿using System;
+﻿/* Side.cs
+ * Author: Jack Johnson
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
     /// <summary>
-    /// 
+    /// Determines the size of the side.
     /// </summary>
     public enum Size
     {
@@ -19,9 +22,9 @@ namespace DinoDiner.Menu.Sides
     public abstract class Side
     {
         /// <summary>
-        /// 
+        /// List of ingredients specific to each side.
         /// </summary>
-        protected List<string> ingredients;
+        protected List<string> ingredients = new List<string>();
 
         /// <summary>
         /// Gets and sets the price

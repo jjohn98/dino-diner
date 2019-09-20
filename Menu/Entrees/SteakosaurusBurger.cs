@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Class for storing the information about the Steakosaurus Burger menu item.
     /// </summary>
-    public class SteakosaurusBurger
+    public class SteakosaurusBurger : Entree
     {
         /// <summary>
         /// Stores the value which determines whether or not the item has pickles.
@@ -29,25 +29,6 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         private bool mustard = true;
 
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        /// <summary>
-        /// This stores the ingredients for the item which changes depending on which parts of the item the customer removes.
-        /// </summary>
-        public List<string> Ingredients
-        {
-            get
-            {
-                List<string> ingredients = new List<string>() { "Steakburger Pattie" };
-                if (bun) ingredients.Add("Whole-Wheat Bun");
-                if (pickle) ingredients.Add("Pickle");
-                if (ketchup) ingredients.Add("Ketchup");
-                if (mustard) ingredients.Add("Mustard");
-                return ingredients;
-            }
-        }
-
         /// <summary>
         /// Constructor which initializes the default price and calories of the item.
         /// </summary>
@@ -55,6 +36,11 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 5.15;
             this.Calories = 621;
+            Ingredients.Add("Steakburger Pattie");
+            if (bun) Ingredients.Add("Whole-Wheat Bun");
+            if (pickle) Ingredients.Add("Pickle");
+            if (ketchup) Ingredients.Add("Ketchup");
+            if (mustard) Ingredients.Add("Mustard");
         }
 
         /// <summary>
@@ -62,7 +48,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldBun()
         {
-            this.bun = false;
+            Ingredients.Remove("Whole-Wheat Bun");
         }
 
         /// <summary>
@@ -70,7 +56,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldKetchup()
         {
-            this.ketchup = false;
+            Ingredients.Remove("Ketchup");
         }
 
         /// <summary>
@@ -78,7 +64,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldPickle()
         {
-            this.pickle = false;
+            Ingredients.Remove("Pickle");
         }
 
         /// <summary>
@@ -86,7 +72,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldMustard()
         {
-            this.mustard = false;
+            Ingredients.Remove("Mustard");
         }
     }
 }

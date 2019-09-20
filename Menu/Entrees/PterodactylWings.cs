@@ -10,28 +10,12 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Class for storing information about the Pterodactyl Wings menu item.
     /// </summary>
-    public class PterodactylWings
+    public class PterodactylWings : Entree
     {
         /// <summary>
         /// Stores the value which determines whether or not the item has sauce.
         /// </summary>
         private bool sauce = true;
-
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        /// <summary>
-        /// This stores the ingredients for the item which changes depending on which parts of the item the customer removes.
-        /// </summary>
-        public List<string> Ingredients
-        {
-            get
-            {
-                List<string> ingredients = new List<string>() { "Chicken" };
-                if (sauce) ingredients.Add("Wing Sauce");
-                return ingredients;
-            }
-        }
 
         /// <summary>
         /// Constructor which initializes the default price and calories of the item.
@@ -40,6 +24,8 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 7.21;
             this.Calories = 318;
+            Ingredients.Add("Chicken");
+            if (sauce) Ingredients.Add("Wing Sauce");
         }
 
         /// <summary>
@@ -47,7 +33,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldSauce()
         {
-            this.sauce = false;
+            Ingredients.Remove("Wing Sauce");
         }
     }
 }

@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Class for storing information about the T Rex King Burger menu item.
     /// </summary>
-    public class TRexKingBurger
+    public class TRexKingBurger : Entree
     {
         /// <summary>
         /// Stores the value which determines whether or not the item has lettuce.
@@ -45,29 +45,6 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         private bool mayo = true;
 
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        /// <summary>
-        /// This stores the ingredients for the item which changes depending on which parts of the item the customer removes.
-        /// </summary>
-        public List<string> Ingredients
-        {
-            get
-            {
-                List<string> ingredients = new List<string>() { "Steakburger Pattie", "Steakburger Pattie", "Steakburger Pattie" };
-                if (bun) ingredients.Add("Whole-Wheat Bun");
-                if (tomato) ingredients.Add("Tomato");
-                if (lettuce) ingredients.Add("Lettuce");
-                if (onion) ingredients.Add("Onion");
-                if (pickle) ingredients.Add("Pickle");
-                if (ketchup) ingredients.Add("Ketchup");
-                if (mustard) ingredients.Add("Mustard");
-                if (mayo) ingredients.Add("Mayo");
-                return ingredients;
-            }
-        }
-
         /// <summary>
         /// Constructor which initializes the default price and calories of the item.
         /// </summary>
@@ -75,6 +52,17 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 8.45;
             this.Calories = 728;
+            Ingredients.Add("Steakburger Pattie");
+            Ingredients.Add("Steakburger Pattie");
+            Ingredients.Add("Steakburger Pattie");
+            if (bun) ingredients.Add("Whole-Wheat Bun");
+            if (tomato) ingredients.Add("Tomato");
+            if (lettuce) ingredients.Add("Lettuce");
+            if (onion) ingredients.Add("Onion");
+            if (pickle) ingredients.Add("Pickle");
+            if (ketchup) ingredients.Add("Ketchup");
+            if (mustard) ingredients.Add("Mustard");
+            if (mayo) ingredients.Add("Mayo");
         }
 
         /// <summary>
@@ -82,7 +70,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldBun()
         {
-            this.bun = false;
+            Ingredients.Remove("Whole-Wheat Bun");
         }
 
         /// <summary>
@@ -90,7 +78,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldLettuce()
         {
-            this.lettuce = false;
+            Ingredients.Remove("Lettuce");
         }
 
         /// <summary>
@@ -98,7 +86,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldTomato()
         {
-            this.tomato = false;
+            Ingredients.Remove("Tomato");
         }
 
         /// <summary>
@@ -106,7 +94,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldOnion()
         {
-            this.onion = false;
+            Ingredients.Remove("Onion");
         }
 
         /// <summary>
@@ -114,7 +102,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldPickle()
         {
-            this.pickle = false;
+            Ingredients.Remove("Pickle");
         }
 
         /// <summary>
@@ -122,7 +110,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldKetchup()
         {
-            this.ketchup = false;
+            Ingredients.Remove("Ketchup");
         }
 
         /// <summary>
@@ -130,7 +118,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldMustard()
         {
-            this.mustard = false;
+            Ingredients.Remove("Mustard");
         }
 
         /// <summary>
@@ -138,7 +126,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldMayo()
         {
-            this.mayo = false;
+            Ingredients.Remove("Mayo");
         }
     }
 }

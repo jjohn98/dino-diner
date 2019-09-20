@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Class for storing information about the brontowurst menu item.
     /// </summary>
-    public class Brontowurst
+    public class Brontowurst : Entree
     {
         /// <summary>
         /// Stores the value which determines whether or not the item has peppers.
@@ -25,31 +25,19 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         private bool bun = true;
 
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        /// <summary>
-        /// This stores the ingredients for the item which changes depending on which parts of the item the customer removes.
-        /// </summary>
-        public List<string> Ingredients
-        {
-            get
-            {
-                List<string> ingredients = new List<string>() { "Brautwurst" };
-                if (bun) ingredients.Add("Whole-Wheat Bun");
-                if (onions) ingredients.Add("Onion");
-                if (peppers) ingredients.Add("Peppers");
-                return ingredients;
-            }
-        }
-
         /// <summary>
         /// Constructor which initializes the default price and calories of the item.
+        /// Also sets the ingredients for the item in accordance with the base class.
         /// </summary>
         public Brontowurst()
         {
             this.Price = 5.36;
             this.Calories = 498;
+            Ingredients.Add("Brautwurst");
+            if (bun) Ingredients.Add("Whole-Wheat Bun");
+            if (onions) Ingredients.Add("Onion");
+            if (peppers) Ingredients.Add("Peppers");
+
         }
 
         /// <summary>
@@ -57,7 +45,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldBun()
         {
-            this.bun = false;
+            Ingredients.Remove("Whole-Wheat Bun");
         }
 
         /// <summary>
@@ -65,7 +53,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldPeppers()
         {
-            this.peppers = false;
+            Ingredients.Remove("Peppers");
         }
 
         /// <summary>
@@ -73,7 +61,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldOnion()
         {
-            this.onions = false;
+            Ingredients.Remove("Onion");
         }
     }
 }
