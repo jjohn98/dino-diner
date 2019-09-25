@@ -21,6 +21,11 @@ namespace DinoDiner.Menu.Sides
             /// List of ingredients specific to each drink.
             /// </summary>
             protected List<string> ingredients = new List<string>();
+            
+            /// <summary>
+            /// Holds the size as a field for each drink.
+            /// </summary>
+            protected Size size = Size.Small;
 
             /// <summary>
             /// Gets and sets the price
@@ -45,13 +50,14 @@ namespace DinoDiner.Menu.Sides
             /// <summary>
             /// Gets and sets whether or not the drink contains ice.
             /// </summary>
-            public virtual bool Ice { get; set; }
+            public virtual bool Ice { get; set; } = true;
 
             /// <summary>
             /// Removes ice from the drinks ingredients list.
             /// </summary>
             public virtual void HoldIce()
             {
+                Ingredients.Remove("Ice");
             }
         }
     }

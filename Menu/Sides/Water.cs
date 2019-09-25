@@ -34,8 +34,8 @@ namespace DinoDiner.Menu.Sides
         {
             set
             {
-                Size = value;
-                switch (Size)
+                size = value;
+                switch (size)
                 {
                     case Size.Small:
                         Price = 0.10;
@@ -54,7 +54,7 @@ namespace DinoDiner.Menu.Sides
             }
             get
             {
-                return Size;
+                return size;
             }
         }
 

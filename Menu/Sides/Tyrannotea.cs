@@ -40,8 +40,8 @@ namespace DinoDiner.Menu.Sides
         {
             set
             {
-                Size = value;
-                switch (Size)
+                size = value;
+                switch (size)
                 {
                     case Size.Small:
                         Price = 0.99;
@@ -60,7 +60,7 @@ namespace DinoDiner.Menu.Sides
             }
             get
             {
-                return Size;
+                return size;
             }
         }
 
@@ -69,6 +69,7 @@ namespace DinoDiner.Menu.Sides
         /// </summary>
         public void AddSugar()
         {
+            this.Sugar = true;
             Ingredients.Add("Cane Sugar");
             this.Calories *= 2;
         }
@@ -78,6 +79,7 @@ namespace DinoDiner.Menu.Sides
         /// </summary>
         public void AddLemon()
         {
+            this.Lemon = true;
             Ingredients.Add("Lemon");
         }
     }

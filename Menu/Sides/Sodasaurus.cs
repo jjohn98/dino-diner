@@ -11,6 +11,7 @@ namespace DinoDiner.Menu.Sides
     /// </summary>
     public class Sodasaurus : Drink
     {
+
         /// <summary>
         /// Stores the value of the flavor of the soda.
         /// </summary>
@@ -36,8 +37,8 @@ namespace DinoDiner.Menu.Sides
         {
             set
             {
-                Size = value;
-                switch (Size)
+                size = value;
+                switch (size)
                 {
                     case Size.Small:
                         Price = 1.50;
@@ -56,7 +57,7 @@ namespace DinoDiner.Menu.Sides
             }
             get
             {
-                return Size;
+                return size;
             }
         }
     }
