@@ -3,8 +3,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DinoDiner.Menu.Sides;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu.Drinks
 {
     /// <summary>
     /// Class definition for the Tyrannotea class which contains its specific values and inherits from the Drink class.

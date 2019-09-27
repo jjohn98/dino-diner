@@ -1,30 +1,33 @@
-﻿///Water.cs
+﻿///JurrasicJava.cs
 ///Author: Jack Johnson
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DinoDiner.Menu.Sides;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu.Drinks
 {
     /// <summary>
-    /// Class definition for the Water class which contains its specific values and inherits from the Drink class.
+    /// Class definition for the JurrasicJava class which contains its specific values and inherits from the Drink class.
     /// </summary>
-    public class Water : Drink
+    public class JurrasicJava : Drink
     {
         /// <summary>
-        /// Stores whether or not the water contains a lemon.
+        /// Bool which stores the value of whether or not room is left for cream.
         /// </summary>
-        public bool Lemon { get; set; }
+        public bool RoomForCream { get; set; }
 
         /// <summary>
         /// Constructor which creates the object with its default ingredients, price, and calories.
         /// </summary>
-        public Water()
+        public JurrasicJava()
         {
-            this.Price = 0.10;
-            this.Calories = 0;
-            Ingredients.Add("Ice");
+            this.RoomForCream = false;
+            this.Price = 0.99;
+            this.Calories = 8;
+            Ingredients.Add("Coffee");
             Ingredients.Add("Water");
+
         }
 
         /// <summary>
@@ -38,16 +41,16 @@ namespace DinoDiner.Menu.Sides
                 switch (size)
                 {
                     case Size.Small:
-                        Price = 0.10;
-                        Calories = 0;
+                        Price = 0.99;
+                        Calories = 8;
                         break;
                     case Size.Medium:
-                        Price = 0.10;
-                        Calories = 0;
+                        Price = 1.49;
+                        Calories = 16;
                         break;
                     case Size.Large:
-                        Price = 0.10;
-                        Calories = 0;
+                        Price = 1.99;
+                        Calories = 32;
                         break;
 
                 }
@@ -59,11 +62,16 @@ namespace DinoDiner.Menu.Sides
         }
 
         /// <summary>
-        /// Adds lemon to the list of ingredients.
+        /// Adds ice to the list of ingredients.
         /// </summary>
-        public void AddLemon()
+        public void AddIce()
         {
-            Ingredients.Add("Lemon");
+            Ingredients.Add("Ice");
+        }
+
+        public void LeaveRoomForCream()
+        {
+            this.RoomForCream = true;
         }
     }
 

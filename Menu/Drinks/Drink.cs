@@ -3,8 +3,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DinoDiner.Menu.Sides;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu.Drinks
 {
 
         /// <summary>

@@ -5,10 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu.Sides;
+using DinoDiner.Menu.Drinks;
 using Xunit;
 using DinoDiner.Menu;
 
-namespace MenuTest.Sides
+namespace MenuTest.Drinks
 {
     public class TyrannoteaTest
     {   
