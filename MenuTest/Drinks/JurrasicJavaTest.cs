@@ -145,6 +145,9 @@ namespace MenuTest.Drinks
             Assert.Contains("Coffee", java.Ingredients);
         }
 
+        /// <summary>
+        /// Checks to see if the default value of cream room is false.
+        /// </summary>
         [Fact]
         public void ShouldHaveDefaultRoomForCream()
         {
@@ -152,12 +155,36 @@ namespace MenuTest.Drinks
             Assert.False(java.RoomForCream);
         }
 
+        /// <summary>
+        /// Checks to see if you can add room for cream correctly.
+        /// </summary>
         [Fact]
         public void ShouldBeAbleToAddRoomForCream()
         {
             JurrasicJava java = new JurrasicJava();
             java.LeaveRoomForCream();
             Assert.True(java.RoomForCream);
+        }
+
+        /// <summary>
+        /// Checks to see if the default value for decaf is false.
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectDefaultValueForCaffeine()
+        {
+            JurrasicJava java = new JurrasicJava();
+            Assert.False(java.Decaf);
+        }
+
+        /// <summary>
+        /// Checks to see if the default value for decaf is false.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAbleToSetDecafToTrue()
+        {
+            JurrasicJava java = new JurrasicJava();
+            java.MakeDecaf();
+            Assert.True(java.Decaf);
         }
     }
 }

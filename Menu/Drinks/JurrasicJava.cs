@@ -18,10 +18,16 @@ namespace DinoDiner.Menu.Drinks
         public bool RoomForCream { get; set; }
 
         /// <summary>
+        /// Bool which determines whether or not the coffee is decaffinated.
+        /// </summary>
+        public bool Decaf { get; set; }
+
+        /// <summary>
         /// Constructor which creates the object with its default ingredients, price, and calories.
         /// </summary>
         public JurrasicJava()
         {
+            this.Decaf = false;
             this.Ice = false;
             this.RoomForCream = false;
             this.Price = 0.99;
@@ -77,6 +83,14 @@ namespace DinoDiner.Menu.Drinks
         public void LeaveRoomForCream()
         {
             this.RoomForCream = true;
+        }
+
+        /// <summary>
+        /// Sets the decaf value to true.
+        /// </summary>
+        public void MakeDecaf()
+        {
+            this.Decaf = true;
         }
     }
 
