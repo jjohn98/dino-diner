@@ -83,6 +83,23 @@ namespace DinoDiner.Menu.Drinks
             this.Lemon = true;
             Ingredients.Add("Lemon");
         }
+
+        /// <summary>
+        /// Removes sugar only if sugar has already been added.
+        /// </summary>
+        public void RemoveSugar()
+        {
+            if (this.Sugar == true)
+            {
+                this.Sugar = false;
+                Ingredients.Remove("Cane Sugar");
+                this.Calories = this.Calories / 2;
+            }
+            else
+            {
+                Console.WriteLine("No sugar to remove.");
+            }
+        }
     }
 
 

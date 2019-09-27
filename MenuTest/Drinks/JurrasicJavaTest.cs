@@ -1,4 +1,4 @@
-﻿/* JurrasicJavaTestTest
+﻿/* JurrasicJavaTest
  * Author: Jack Johnson
  */
 using System;
@@ -11,57 +11,153 @@ using DinoDiner.Menu;
 
 namespace MenuTest.Drinks
 {
+    /// <summary>
+    /// Class to test all of the functionality of the JurrasicJava class.
+    /// </summary>
     public class JurrasicJavaTest
     {
         /// <summary>
-        /// 
+        /// Tests to see if the default price is correct.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectDefaultPrice()
         {
-            Sodasaurus soda = new Sodasaurus();
-            Assert.Equal<double>(1.50, soda.Price);
+            JurrasicJava java = new JurrasicJava();
+            Assert.Equal<double>(0.99, java.Price);
         }
 
         /// <summary>
-        /// 
+        /// Tests to see if the default calories are correct.
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectDefaultCalories()
+        {
+            JurrasicJava java = new JurrasicJava();
+            Assert.Equal<uint>(2, java.Calories);
+        }
+
+        /// <summary>
+        /// Tests to see if the default size is correct.
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectDefaultSize()
+        {
+            JurrasicJava java = new JurrasicJava();
+            Assert.Equal<Size>(Size.Small, java.Size);
+        }
+
+        /// <summary>
+        /// Tests to see if the price is correct after setting the size to small.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingSmall()
         {
-            Sodasaurus soda = new Sodasaurus();
-            soda.Size = Size.Small;
-            Assert.Equal<double>(1.50, soda.Price);
+            JurrasicJava java = new JurrasicJava();
+            java.Size = Size.Small;
+            Assert.Equal<double>(0.99, java.Price);
         }
 
         /// <summary>
-        /// 
+        /// Tests to see if the price is correct after setting the size to medium.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingMedium()
         {
-            Sodasaurus soda = new Sodasaurus();
-            soda.Size = Size.Medium;
-            Assert.Equal<double>(2.00, soda.Price);
+            JurrasicJava java = new JurrasicJava();
+            java.Size = Size.Medium;
+            Assert.Equal<double>(1.49, java.Price);
         }
 
         /// <summary>
-        /// 
+        /// Tests to see if the price is correct after setting the size to large.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingLarge()
         {
-            Sodasaurus soda = new Sodasaurus();
-            soda.Size = Size.Large;
-            Assert.Equal<double>(2.50, soda.Price);
+            JurrasicJava java = new JurrasicJava();
+            java.Size = Size.Large;
+            Assert.Equal<double>(1.99, java.Price);
         }
 
+        /// <summary>
+        /// Tests to see if the calories are correct after setting the size to small.
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectCaloriesAfterSettingSmall()
+        {
+            JurrasicJava java = new JurrasicJava();
+            java.Size = Size.Small;
+            Assert.Equal<uint>(2, java.Calories);
+        }
+
+        /// <summary>
+        /// Tests to see if the calories are correct after setting the size to medium.
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectCaloriesAfterSettingMedium()
+        {
+            JurrasicJava java = new JurrasicJava();
+            java.Size = Size.Medium;
+            Assert.Equal<uint>(4, java.Calories);
+        }
+
+        /// <summary>
+        /// Tests to see if the calories are correct after setting the size to large.
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectCaloriesAfterSettingLarge()
+        {
+            JurrasicJava java = new JurrasicJava();
+            java.Size = Size.Large;
+            Assert.Equal<uint>(8, java.Calories);
+        }
+
+        /// <summary>
+        /// Tests to see if the drink contains ice by default.
+        /// </summary>
         [Fact]
         public void ShouldHaveDefaultIce()
         {
-            Sodasaurus soda = new Sodasaurus();
-            Assert.True(soda.Ice);
+            JurrasicJava java = new JurrasicJava();
+            Assert.False(java.Ice);
+        }
+
+        /// <summary>
+        /// Tests to see if you are able to remove ice.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAbleToAddIce()
+        {
+            JurrasicJava java = new JurrasicJava();
+            java.AddIce();
+            Assert.Contains("Ice", java.Ingredients);
+            Assert.True(java.Ice);
+        }
+
+        /// <summary>
+        /// Tests to see if the default ingredients are correct.
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectDefaultIngredients()
+        {
+            JurrasicJava java = new JurrasicJava();
+            Assert.Contains("Water", java.Ingredients);
+            Assert.Contains("Coffee", java.Ingredients);
+        }
+
+        [Fact]
+        public void ShouldHaveDefaultRoomForCream()
+        {
+            JurrasicJava java = new JurrasicJava();
+            Assert.False(java.RoomForCream);
+        }
+
+        [Fact]
+        public void ShouldBeAbleToAddRoomForCream()
+        {
+            JurrasicJava java = new JurrasicJava();
+            java.LeaveRoomForCream();
+            Assert.True(java.RoomForCream);
         }
     }
-
 }

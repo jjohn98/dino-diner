@@ -22,9 +22,10 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public JurrasicJava()
         {
+            this.Ice = false;
             this.RoomForCream = false;
             this.Price = 0.99;
-            this.Calories = 8;
+            this.Calories = 2;
             Ingredients.Add("Coffee");
             Ingredients.Add("Water");
 
@@ -42,15 +43,15 @@ namespace DinoDiner.Menu.Drinks
                 {
                     case Size.Small:
                         Price = 0.99;
-                        Calories = 8;
+                        Calories = 2;
                         break;
                     case Size.Medium:
                         Price = 1.49;
-                        Calories = 16;
+                        Calories = 4;
                         break;
                     case Size.Large:
                         Price = 1.99;
-                        Calories = 32;
+                        Calories = 8;
                         break;
 
                 }
@@ -66,9 +67,13 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public void AddIce()
         {
+            this.Ice = true;
             Ingredients.Add("Ice");
         }
 
+        /// <summary>
+        /// Sets leave room for cream to true.
+        /// </summary>
         public void LeaveRoomForCream()
         {
             this.RoomForCream = true;

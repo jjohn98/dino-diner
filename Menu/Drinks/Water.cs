@@ -64,6 +64,7 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public void AddLemon()
         {
+            this.Lemon = true;
             Ingredients.Add("Lemon");
         }
     }

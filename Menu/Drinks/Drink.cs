@@ -58,6 +58,7 @@ namespace DinoDiner.Menu.Drinks
             /// </summary>
             public virtual void HoldIce()
             {
+                this.Ice = false;
                 Ingredients.Remove("Ice");
             }
         }

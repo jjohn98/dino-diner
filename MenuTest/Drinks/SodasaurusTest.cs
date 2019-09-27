@@ -172,6 +172,31 @@ namespace MenuTest.Drinks
             Sodasaurus soda = new Sodasaurus();
             Assert.True(soda.Ice);
         }
+
+        /// <summary>
+        /// Tests to see if you are able to remove ice.
+        /// </summary>
+        [Fact]
+        public void ShouldBeAbleToRemoveIce()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.HoldIce();
+            Assert.DoesNotContain("Ice", soda.Ingredients);
+            Assert.False(soda.Ice);
+        }
+
+        /// <summary>
+        /// Tests to see if the default ingredients are correct.
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectDefaultIngredients()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Contains("Water", soda.Ingredients);
+            Assert.Contains("Ice", soda.Ingredients);
+            Assert.Contains("Cane Sugar", soda.Ingredients);
+            Assert.Contains("Natural Flavors", soda.Ingredients);
+        }
     }
 
 }
