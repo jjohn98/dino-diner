@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for storing information about the brontowurst menu item.
@@ -33,10 +33,10 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 5.36;
             this.Calories = 498;
-            Ingredients.Add("Brautwurst");
-            if (bun) Ingredients.Add("Whole-Wheat Bun");
-            if (onions) Ingredients.Add("Onion");
-            if (peppers) Ingredients.Add("Peppers");
+            ingredients.Add("Brautwurst");
+            if (bun) ingredients.Add("Whole-Wheat Bun");
+            if (onions) ingredients.Add("Onion");
+            if (peppers) ingredients.Add("Peppers");
 
         }
 
@@ -45,7 +45,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldBun()
         {
-            Ingredients.Remove("Whole-Wheat Bun");
+            ingredients.Remove("Whole-Wheat Bun");
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldPeppers()
         {
-            Ingredients.Remove("Peppers");
+            ingredients.Remove("Peppers");
         }
 
         /// <summary>
@@ -61,7 +61,16 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldOnion()
         {
-            Ingredients.Remove("Onion");
+            ingredients.Remove("Onion");
+        }
+
+        /// <summary>
+        /// Overrides the default ToString method to return the name of the menu item as it should be seen on the menu.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return ("Brontowurst");
         }
     }
 }

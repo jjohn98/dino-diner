@@ -3,9 +3,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Sides;
+using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class definition for the Water class which contains its specific values and inherits from the Drink class.
@@ -24,8 +24,8 @@ namespace DinoDiner.Menu.Drinks
         {
             this.Price = 0.10;
             this.Calories = 0;
-            Ingredients.Add("Ice");
-            Ingredients.Add("Water");
+            ingredients.Add("Ice");
+            ingredients.Add("Water");
         }
 
         /// <summary>
@@ -65,7 +65,25 @@ namespace DinoDiner.Menu.Drinks
         public void AddLemon()
         {
             this.Lemon = true;
-            Ingredients.Add("Lemon");
+            ingredients.Add("Lemon");
+        }
+
+        /// <summary>
+        /// Overrides the default ToString method to return the name of the menu item as it should be seen on the menu.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return ($"{size} Water");
+        }
+
+        /// <summary>
+        /// Removes ice from the drink.
+        /// </summary>
+        public override void HoldIce()
+        {
+            ingredients.Remove("Ice");
+            this.Ice = false;
         }
     }
 

@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class definition to the MezzorellaSticks Side
@@ -25,9 +25,9 @@ namespace DinoDiner.Menu.Sides
         {
             Price = 0.99;
             Calories = 540;
-            Ingredients.Add("Cheese Product");
-            Ingredients.Add("Breading");
-            Ingredients.Add("Vegetable Oil");
+            ingredients.Add("Cheese Product");
+            ingredients.Add("Breading");
+            ingredients.Add("Vegetable Oil");
         }
 
         /// <summary>
@@ -59,6 +59,15 @@ namespace DinoDiner.Menu.Sides
             {
                 return size;
             }
+        }
+
+        /// <summary>
+        /// Overrides the default ToString method to return the name of the menu item as it should be seen on the menu.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return (size.ToString() + " Mezzorella Sticks");
         }
     }
 }

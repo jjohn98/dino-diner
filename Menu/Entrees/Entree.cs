@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Default entree class from which each other entree will inherit properties.
     /// </summary>
-        public abstract class Entree
+        public abstract class Entree : IMenuItem
         {
             /// <summary>
             /// List of ingredients specific to each entree.
@@ -30,7 +30,7 @@ namespace DinoDiner.Menu.Entrees
             /// <summary>
             /// Gets the ingredients list
             /// </summary>
-            public virtual List<string> Ingredients { get { return ingredients; } }
+            public virtual List<string> Ingredients { get { return new List<string>(ingredients.ToArray()); } }
 
         }
 }

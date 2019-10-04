@@ -3,9 +3,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Sides;
+using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
 
         /// <summary>
@@ -16,7 +16,7 @@ namespace DinoDiner.Menu.Drinks
             Cola, Orange, RootBeer, Lime, Cherry, Vanilla, Grape, Chocolate
         }
 
-        public abstract class Drink
+        public abstract class Drink : IMenuItem
         {
             /// <summary>
             /// List of ingredients specific to each drink.
@@ -41,7 +41,7 @@ namespace DinoDiner.Menu.Drinks
             /// <summary>
             /// Gets the ingredients list
             /// </summary>
-            public List<string> Ingredients { get { return ingredients; } }
+            public List<string> Ingredients { get { return new List<string>(ingredients.ToArray()); } }
 
             /// <summary>
             /// Gets or sets the size

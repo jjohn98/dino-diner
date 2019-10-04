@@ -4,7 +4,7 @@
  */
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This class stores the information about the Prehistoric PB&J menu item.
@@ -27,9 +27,9 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 6.52;
             this.Calories = 483;
-            Ingredients.Add("Bread");
-            if (peanutButter) Ingredients.Add("Peanut Butter");
-            if (jelly) Ingredients.Add("Jelly");
+            ingredients.Add("Bread");
+            if (peanutButter) ingredients.Add("Peanut Butter");
+            if (jelly) ingredients.Add("Jelly");
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldPeanutButter()
         {
-            Ingredients.Remove("Peanut Butter");
+            ingredients.Remove("Peanut Butter");
         }
 
         /// <summary>
@@ -45,7 +45,16 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldJelly()
         {
-            Ingredients.Remove("Jelly");
+            ingredients.Remove("Jelly");
+        }
+
+        /// <summary>
+        /// Overrides the default ToString method to return the name of the menu item as it should be seen on the menu.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return ("Prehistoric PB&J");
         }
     }
 }

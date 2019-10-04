@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for storing information about the dino nuggets menu item.
@@ -50,6 +50,15 @@ namespace DinoDiner.Menu.Entrees
             this.nuggetCount += 1;
             this.Price += 0.25;
             this.Calories += 59;
+        }
+
+        /// <summary>
+        /// Overrides the default ToString method to return the name of the menu item as it should be seen on the menu.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return ("Dino-Nuggets");
         }
     }
 }

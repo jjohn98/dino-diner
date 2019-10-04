@@ -3,9 +3,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Sides;
+using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class definition for the Tyrannotea class which contains its specific values and inherits from the Drink class.
@@ -29,9 +29,9 @@ namespace DinoDiner.Menu.Drinks
         {
             this.Price = 0.99;
             this.Calories = 8;
-            Ingredients.Add("Ice");
-            Ingredients.Add("Water");
-            Ingredients.Add("Tea");
+            ingredients.Add("Ice");
+            ingredients.Add("Water");
+            ingredients.Add("Tea");
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace DinoDiner.Menu.Drinks
         public void AddSugar()
         {
             this.Sugar = true;
-            Ingredients.Add("Cane Sugar");
+            ingredients.Add("Cane Sugar");
             this.Calories *= 2;
         }
 
@@ -81,7 +81,7 @@ namespace DinoDiner.Menu.Drinks
         public void AddLemon()
         {
             this.Lemon = true;
-            Ingredients.Add("Lemon");
+            ingredients.Add("Lemon");
         }
 
         /// <summary>
@@ -92,13 +92,34 @@ namespace DinoDiner.Menu.Drinks
             if (this.Sugar == true)
             {
                 this.Sugar = false;
-                Ingredients.Remove("Cane Sugar");
+                ingredients.Remove("Cane Sugar");
                 this.Calories = this.Calories / 2;
             }
             else
             {
                 Console.WriteLine("No sugar to remove.");
             }
+        }
+
+        /// <summary>
+        /// Overrides the default ToString method to return the name of the menu item as it should be seen on the menu.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            if(!Sugar)
+            return (size.ToString() + " Tyrannotea");
+            else
+            return (size.ToString() + " Sweet Tyrannotea");
+        }
+
+        /// <summary>
+        /// Removes ice from the drink.
+        /// </summary>
+        public override void HoldIce()
+        {
+            ingredients.Remove("Ice");
+            this.Ice = false;
         }
     }
 

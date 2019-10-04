@@ -3,9 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Entrees;
-using DinoDiner.Menu.Sides;
-using DinoDiner.Menu.Drinks;
+using DinoDiner.Menu;
 
 
 namespace DinoDiner.Menu
@@ -13,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class definition for the combo which includes an entree, side, and drink.
     /// </summary>
-    class CretaceousCombo
+    public class CretaceousCombo : IMenuItem
     {
         /// <summary>
         /// Stores the entree for the combo.
@@ -99,6 +97,30 @@ namespace DinoDiner.Menu
             }
         }
 
+        double IMenuItem.Price
+        {
+            get
+            {
+                return Price;
+            }
+
+            set
+            {
+
+            }
+        }
+        uint IMenuItem.Calories
+        {
+            get
+            {
+                return Calories;
+            }
+            set
+            {
+
+            }
+        }
+
         /// <summary>
         /// Constructor for the combo which has default size and drink.
         /// </summary>
@@ -108,6 +130,15 @@ namespace DinoDiner.Menu
             Entree = e;
             Side = new Fryceritops();
             Drink = new Sodasaurus();
+        }
+
+        /// <summary>
+        /// Overrides the default ToString method to return the name of the menu item as it should be seen on the menu.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return ($"{Entree} Combo");
         }
     }
 }

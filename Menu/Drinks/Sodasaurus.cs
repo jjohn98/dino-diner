@@ -3,9 +3,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Sides;
+using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class definition for the Sodasaurus class which contains its specific values and inherits from the Drink class.
@@ -25,10 +25,10 @@ namespace DinoDiner.Menu.Drinks
         {
             this.Price = 1.50;
             this.Calories = 112;
-            Ingredients.Add("Ice");
-            Ingredients.Add("Water");
-            Ingredients.Add("Cane Sugar");
-            Ingredients.Add("Natural Flavors");
+            ingredients.Add("Ice");
+            ingredients.Add("Water");
+            ingredients.Add("Cane Sugar");
+            ingredients.Add("Natural Flavors");
         }
 
         /// <summary>
@@ -60,6 +60,24 @@ namespace DinoDiner.Menu.Drinks
             {
                 return size;
             }
+        }
+
+        /// <summary>
+        /// Removes ice from the drink.
+        /// </summary>
+        public override void HoldIce()
+        {
+            ingredients.Remove("Ice");
+            this.Ice = false;
+        }
+
+        /// <summary>
+        /// Overrides the default ToString method to return the name of the menu item as it should be seen on the menu.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return ($"{size} {Flavor} Sodasaurus");
         }
     }
 

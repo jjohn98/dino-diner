@@ -3,14 +3,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Sides;
+using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class definition for the JurrasicJava class which contains its specific values and inherits from the Drink class.
     /// </summary>
-    public class JurrasicJava : Drink
+    public class JurassicJava : Drink
     {
         /// <summary>
         /// Bool which stores the value of whether or not room is left for cream.
@@ -25,15 +25,15 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Constructor which creates the object with its default ingredients, price, and calories.
         /// </summary>
-        public JurrasicJava()
+        public JurassicJava()
         {
             this.Decaf = false;
             this.Ice = false;
             this.RoomForCream = false;
             this.Price = 0.99;
             this.Calories = 2;
-            Ingredients.Add("Coffee");
-            Ingredients.Add("Water");
+            ingredients.Add("Coffee");
+            ingredients.Add("Water");
 
         }
 
@@ -74,7 +74,7 @@ namespace DinoDiner.Menu.Drinks
         public void AddIce()
         {
             this.Ice = true;
-            Ingredients.Add("Ice");
+            ingredients.Add("Ice");
         }
 
         /// <summary>
@@ -91,6 +91,19 @@ namespace DinoDiner.Menu.Drinks
         public void MakeDecaf()
         {
             this.Decaf = true;
+        }
+
+        /// <summary>
+        /// Overrides the default ToString method to return the name of the menu item as it should be seen on the menu.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            if(!Decaf)
+            return (size.ToString() + " Jurassic Java");
+            else
+            return (size.ToString() + " Decaf Jurassic Java");
+
         }
     }
 

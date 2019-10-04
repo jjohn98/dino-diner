@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Determines the size of the side.
@@ -19,7 +19,7 @@ namespace DinoDiner.Menu.Sides
 
     
 
-    public abstract class Side
+    public abstract class Side : IMenuItem
     {
         /// <summary>
         /// List of ingredients specific to each side.
@@ -39,7 +39,7 @@ namespace DinoDiner.Menu.Sides
         /// <summary>
         /// Gets the ingredients list
         /// </summary>
-        public List<string> Ingredients { get { return ingredients; } }
+        public List<string> Ingredients { get { return new List<string>(ingredients.ToArray()); } }
 
         /// <summary>
         /// Gets or sets the size

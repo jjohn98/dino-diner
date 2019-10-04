@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for storing the information about the Steakosaurus Burger menu item.
@@ -36,11 +36,11 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 5.15;
             this.Calories = 621;
-            Ingredients.Add("Steakburger Pattie");
-            if (bun) Ingredients.Add("Whole-Wheat Bun");
-            if (pickle) Ingredients.Add("Pickle");
-            if (ketchup) Ingredients.Add("Ketchup");
-            if (mustard) Ingredients.Add("Mustard");
+            ingredients.Add("Steakburger Pattie");
+            if (bun) ingredients.Add("Whole-Wheat Bun");
+            if (pickle) ingredients.Add("Pickle");
+            if (ketchup) ingredients.Add("Ketchup");
+            if (mustard) ingredients.Add("Mustard");
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldBun()
         {
-            Ingredients.Remove("Whole-Wheat Bun");
+            ingredients.Remove("Whole-Wheat Bun");
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldKetchup()
         {
-            Ingredients.Remove("Ketchup");
+            ingredients.Remove("Ketchup");
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldPickle()
         {
-            Ingredients.Remove("Pickle");
+            ingredients.Remove("Pickle");
         }
 
         /// <summary>
@@ -72,7 +72,16 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldMustard()
         {
-            Ingredients.Remove("Mustard");
+            ingredients.Remove("Mustard");
+        }
+
+        /// <summary>
+        /// Overrides the default ToString method to return the name of the menu item as it should be seen on the menu.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return ("Steakosaurus Burger");
         }
     }
 }

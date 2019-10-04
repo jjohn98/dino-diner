@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for storing information about the T Rex King Burger menu item.
@@ -52,9 +52,9 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 8.45;
             this.Calories = 728;
-            Ingredients.Add("Steakburger Pattie");
-            Ingredients.Add("Steakburger Pattie");
-            Ingredients.Add("Steakburger Pattie");
+            ingredients.Add("Steakburger Pattie");
+            ingredients.Add("Steakburger Pattie");
+            ingredients.Add("Steakburger Pattie");
             if (bun) ingredients.Add("Whole-Wheat Bun");
             if (tomato) ingredients.Add("Tomato");
             if (lettuce) ingredients.Add("Lettuce");
@@ -70,7 +70,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldBun()
         {
-            Ingredients.Remove("Whole-Wheat Bun");
+            ingredients.Remove("Whole-Wheat Bun");
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldLettuce()
         {
-            Ingredients.Remove("Lettuce");
+            ingredients.Remove("Lettuce");
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldTomato()
         {
-            Ingredients.Remove("Tomato");
+            ingredients.Remove("Tomato");
         }
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldOnion()
         {
-            Ingredients.Remove("Onion");
+            ingredients.Remove("Onion");
         }
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldPickle()
         {
-            Ingredients.Remove("Pickle");
+            ingredients.Remove("Pickle");
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldKetchup()
         {
-            Ingredients.Remove("Ketchup");
+            ingredients.Remove("Ketchup");
         }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldMustard()
         {
-            Ingredients.Remove("Mustard");
+            ingredients.Remove("Mustard");
         }
 
         /// <summary>
@@ -126,7 +126,16 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldMayo()
         {
-            Ingredients.Remove("Mayo");
+            ingredients.Remove("Mayo");
+        }
+
+        /// <summary>
+        /// Overrides the default ToString method to return the name of the menu item as it should be seen on the menu.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return ("T-Rex King Burger");
         }
     }
 }

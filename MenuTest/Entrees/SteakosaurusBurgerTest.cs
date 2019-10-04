@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Xunit;
-using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
+
 
 namespace MenuTest.Entrees
 {
@@ -24,13 +25,13 @@ namespace MenuTest.Entrees
         public void ShouldListDefaultIngredients()
         {
             SteakosaurusBurger sb = new SteakosaurusBurger();
-            List<string> ingredients = sb.Ingredients;
-            Assert.Contains<string>("Whole-Wheat Bun", ingredients);
-            Assert.Contains<string>("Steakburger Pattie", ingredients);
-            Assert.Contains<string>("Pickle", ingredients);
-            Assert.Contains<string>("Ketchup", ingredients);
-            Assert.Contains<string>("Mustard", ingredients);
-            Assert.Equal<int>(5, ingredients.Count);
+            List<string> Ingredients = sb.Ingredients;
+            Assert.Contains<string>("Whole-Wheat Bun", Ingredients);
+            Assert.Contains<string>("Steakburger Pattie", Ingredients);
+            Assert.Contains<string>("Pickle", Ingredients);
+            Assert.Contains<string>("Ketchup", Ingredients);
+            Assert.Contains<string>("Mustard", Ingredients);
+            Assert.Equal<int>(5, Ingredients.Count);
         }
 
         [Fact]

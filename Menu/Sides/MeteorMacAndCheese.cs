@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class definition to the MeteorMacAndCheese Side
@@ -25,9 +25,9 @@ namespace DinoDiner.Menu.Sides
         {
             Price = 0.99;
             Calories = 420;
-            Ingredients.Add("Macaroni Noodles");
-            Ingredients.Add("Cheese Product");
-            Ingredients.Add("Pork Sausage");
+            ingredients.Add("Macaroni Noodles");
+            ingredients.Add("Cheese Product");
+            ingredients.Add("Pork Sausage");
         }
 
         /// <summary>
@@ -59,6 +59,15 @@ namespace DinoDiner.Menu.Sides
             {
                 return size;
             }
+        }
+
+        /// <summary>
+        /// Overrides the default ToString method to return the name of the menu item as it should be seen on the menu.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return (size.ToString() + " Meteor Mac and Cheese");
         }
     }
 }

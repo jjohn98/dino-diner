@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for storing the information about the VelociWrap menu item.
@@ -36,11 +36,11 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 6.86;
             this.Calories = 356;
-            Ingredients.Add("Chicken Breast");
-            if (tortilla) Ingredients.Add("Flour Tortilla");
-            if (lettuce) Ingredients.Add("Romaine Lettuce");
-            if (dressing) Ingredients.Add("Caesar Dressing");
-            if (cheese) Ingredients.Add("Parmesan Cheese");
+            ingredients.Add("Chicken Breast");
+            if (tortilla) ingredients.Add("Flour Tortilla");
+            if (lettuce) ingredients.Add("Romaine Lettuce");
+            if (dressing) ingredients.Add("Caesar Dressing");
+            if (cheese) ingredients.Add("Parmesan Cheese");
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldTortilla()
         {
-            Ingredients.Remove("Tortilla");
+            ingredients.Remove("Tortilla");
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldDressing()
         {
-            Ingredients.Remove("Caesar Dressing");
+            ingredients.Remove("Caesar Dressing");
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldLettuce()
         {
-            Ingredients.Remove("Romaine Lettuce");
+            ingredients.Remove("Romaine Lettuce");
         }
 
         /// <summary>
@@ -72,7 +72,16 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void HoldCheese()
         {
-            Ingredients.Remove("Parmesan Cheese");
+            ingredients.Remove("Parmesan Cheese");
+        }
+
+        /// <summary>
+        /// Overrides the default ToString method to return the name of the menu item as it should be seen on the menu.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return ("Veloci-Wrap");
         }
     }
 }
