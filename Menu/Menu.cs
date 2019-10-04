@@ -90,6 +90,10 @@ namespace DinoDiner.Menu
             new CretaceousCombo(new VelociWrap())
         };
 
+        /// <summary>
+        /// Adds every available menu item to a string separated by new lines.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             string output = "";
