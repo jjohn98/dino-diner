@@ -1,4 +1,6 @@
-﻿using System;
+﻿/// ComboPage.xaml.cs
+/// Author: Jack Johnson
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,44 +22,89 @@ namespace PointOfSale
     /// </summary>
     public partial class ComboPage : Page
     {
+        /// <summary>
+        /// Creates a new combo page.
+        /// </summary>
         public ComboPage()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Takes the user to the customize combo page and sends the name
+        /// of the entree for the combo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BrontowurstCombo_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new CustomizeCombo("Brontowurst"));
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Takes the user to the customize combo page and sends the name
+        /// of the entree for the combo 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DinoNuggetsCombo_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new CustomizeCombo("Dino-Nuggets"));
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Takes the user to the customize combo page and sends the name
+        /// of the entree for the combo 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SteakosaurusCombo_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new CustomizeCombo("Steakosaurus"));
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Takes the user to the customize combo page and sends the name
+        /// of the entree for the combo 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PrehistoricPBJCombo_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new CustomizeCombo("Prehistoric PB&J"));
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Takes the user to the customize combo page and sends the name
+        /// of the entree for the combo 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PterodactylWingsCombo_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new CustomizeCombo("Pterodactyl Wings"));
         }
 
-        private void Button_Click_4(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Takes the user to the customize combo page and sends the name
+        /// of the entree for the combo 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void VelociWrapCombo_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new CustomizeCombo("Veloci-Wrap"));
         }
 
-        private void Button_Click_5(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Takes the user to the customize combo page and sends the name
+        /// of the entree for the combo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TRexKingBurgerCombo_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new CustomizeCombo("T-Rex King Burger"));
         }
     }
 }

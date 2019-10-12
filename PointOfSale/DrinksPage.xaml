@@ -6,9 +6,86 @@
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="DrinksPage">
+      Title="DrinksPage"
+      >
+    <Page.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="Yellow" Offset="0.0" />
+            <GradientStop Color="Red" Offset="0.25" />
+            <GradientStop Color="Blue" Offset="0.75" />
+            <GradientStop Color="LimeGreen" Offset="1.0" />
+        </LinearGradientBrush>
+    </Page.Background>
 
     <Grid>
-        <TextBlock>Yeah Prolly Not</TextBlock>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button Background="DeepSkyBlue" Click="Sodasaurus_Click" Grid.Row="1" Grid.Column="0">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="SodaSaurus"/>
+        </Button>
+
+        <Button Background="DeepSkyBlue" Click="Tyrannotea_Click" Grid.Row="2" Grid.Column="0">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Tyrannotea"/>
+        </Button>
+
+        <Button Background="DeepSkyBlue" Click="Jurassicjava_Click" Grid.Row="3" Grid.Column="0">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Jurassic Java"/>
+        </Button>
+
+        <Button Background="DeepSkyBlue" Click="Water_Click" Grid.Row="4" Grid.Column="0">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Water"/>
+        </Button>
+
+        <Button Background="DeepSkyBlue" Name="SmallButton" Grid.Row="1" Grid.Column="1">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Small"/>
+        </Button>
+
+        <Button Background="DeepSkyBlue" Name="MediumButton" Grid.Row="2" Grid.Column="1">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Medium"/>
+        </Button>
+
+        <Button Background="DeepSkyBlue" Name="LargeButton" Grid.Row="3" Grid.Column="1">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Large"/>
+        </Button>
+
+        <Button Background="DeepSkyBlue" Name="SweetButton" Click="Sweet_Click" Grid.Row="5" Grid.Column="2">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Add Sweetener" IsEnabled="False"/>
+        </Button>
+
+        <Button Background="DeepSkyBlue" Name="DecafButton" Click="Decaf_Click" Grid.Row="4" Grid.Column="2">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Make Decaf" IsEnabled="False"/>
+        </Button>
+
+        <Button Background="DeepSkyBlue" Name="FlavorButton" Click="Flavor_Click" Grid.Row="1" Grid.Column="2">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Choose Flavor" IsEnabled="False"/>
+        </Button>
+
+        <Button Background="DeepSkyBlue" Name="LemonButton" Grid.Row="2" Grid.Column="2">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Add Lemon" IsEnabled="False"/>
+        </Button>
+
+        <Button Background="DeepSkyBlue" Name="IceButton" Grid.Row="3" Grid.Column="2">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Hold Ice" IsEnabled="False"/>
+        </Button>
+
+        <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" FontSize="18" FontWeight="Bold" TextWrapping="Wrap" Text="Drink"/>
+
+        <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="2" FontSize="18" FontWeight="Bold" TextWrapping="Wrap" Text="Size"/>
+
+        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" FontSize="18" FontWeight="Bold" TextWrapping="Wrap" Text="Customize Drink"/>
     </Grid>
 </Page>

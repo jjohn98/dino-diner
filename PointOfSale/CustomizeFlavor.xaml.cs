@@ -1,6 +1,5 @@
-﻿/// MainWindow.xaml.cs
-/// Author: Nathan Bean
-/// Modified by: Jack Johnson
+﻿/// CustomizeFlavor.xaml.cs
+/// Author: Jack Johnson
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,14 +18,14 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CustomizeFlavor.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CustomizeFlavor : Page
     {
         /// <summary>
-        /// Constructs a new main window.
+        /// Constructor for the customize flavor page.
         /// </summary>
-        public MainWindow()
+        public CustomizeFlavor()
         {
             InitializeComponent();
         }

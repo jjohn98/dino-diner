@@ -1,4 +1,6 @@
-﻿using System;
+﻿/// SidesPage.xaml.cs
+/// Author: Jack Johnson
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,9 @@ namespace PointOfSale
     /// </summary>
     public partial class SidesPage : Page
     {
+        /// <summary>
+        /// Constructor for the sides page.
+        /// </summary>
         public SidesPage()
         {
             InitializeComponent();

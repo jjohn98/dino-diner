@@ -8,19 +8,99 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ComboPage">
 
-        <WrapPanel>
+    <Page.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="Yellow" Offset="0.0" />
+            <GradientStop Color="Red" Offset="0.25" />
+            <GradientStop Color="Blue" Offset="0.75" />
+            <GradientStop Color="LimeGreen" Offset="1.0" />
+        </LinearGradientBrush>
+    </Page.Background>
+
+    <WrapPanel>
         <WrapPanel.Resources>
             <Style TargetType="Button">
                 <Setter Property="Width" Value="200"/>
                 <Setter Property="Height" Value="200"/>
             </Style>
         </WrapPanel.Resources>
-        <Button Click="BrontowurstCombo_Click">Brontowurst Combo</Button>
-        <Button Click="Button_Click">Dino-Nuggets Combo</Button>
-        <Button Click="Button_Click_1">Steakosaurus Combo</Button>
-        <Button Click="Button_Click_2">T-Rex King Burger Combo</Button>
-        <Button Click="Button_Click_3">Prehistoric PB&amp;J Combo</Button>
-        <Button Click="Button_Click_4">Pterodactyl Wings Combo</Button>
-        <Button Click="Button_Click_5">Veloci-Wrap Combo</Button>
+        <Button Click="BrontowurstCombo_Click" VerticalContentAlignment="Bottom">
+            <StackPanel VerticalAlignment="Bottom">
+                <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap">
+                    <TextBlock.Inlines>
+                        <Run FontWeight="Bold" FontSize="14" Text="Brontowurst Combo" />
+                    </TextBlock.Inlines></TextBlock>
+            </StackPanel>
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-01.png"/>
+            </Button.Background>
+        </Button>
+        <Button Click="DinoNuggetsCombo_Click" VerticalContentAlignment="Bottom">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom">
+                    <TextBlock.Inlines>
+                        <Run FontWeight="Bold" FontSize="14" Text="Dino-Nuggets Combo" />
+                    </TextBlock.Inlines>
+                </TextBlock>
+            </DockPanel>
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-02.png"/>
+            </Button.Background>
+        </Button>
+        <Button Click="SteakosaurusCombo_Click" VerticalContentAlignment="Bottom">
+            <StackPanel VerticalAlignment="Bottom">
+                <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap">
+                    <TextBlock.Inlines>
+                        <Run FontWeight="Bold" FontSize="14" Text="Steakosaurus Combo" />
+                    </TextBlock.Inlines></TextBlock>
+            </StackPanel>
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-05.png"/>
+            </Button.Background>
+        </Button>
+        <Button Click="TRexKingBurgerCombo_Click" VerticalContentAlignment="Bottom">
+            <StackPanel VerticalAlignment="Bottom">
+                <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap">
+                    <TextBlock.Inlines>
+                        <Run FontWeight="Bold" FontSize="14" Text="T-Rex King Burger Combo" />
+                    </TextBlock.Inlines></TextBlock>
+            </StackPanel>
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-06.png"/>
+            </Button.Background>
+        </Button>
+        <Button Click="PrehistoricPBJCombo_Click" VerticalContentAlignment="Bottom">
+            <StackPanel VerticalAlignment="Bottom">
+                <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap">
+                    <TextBlock.Inlines>
+                        <Run FontWeight="Bold" FontSize="14" Text="Prehistoric PB&amp;J Combo" />
+                    </TextBlock.Inlines></TextBlock>
+            </StackPanel>
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-03.png"/>
+            </Button.Background>
+        </Button>
+        <Button Click="PterodactylWingsCombo_Click" VerticalContentAlignment="Bottom">
+            <StackPanel VerticalAlignment="Bottom">
+                <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap">
+                    <TextBlock.Inlines>
+                        <Run FontWeight="Bold" FontSize="14" Text="Pterodactyl Wings Combo" />
+                    </TextBlock.Inlines></TextBlock>
+            </StackPanel>
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-04.png"/>
+            </Button.Background>
+        </Button>
+        <Button Click="VelociWrapCombo_Click" VerticalContentAlignment="Bottom">
+            <StackPanel VerticalAlignment="Bottom">
+                <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap">
+                    <TextBlock.Inlines>
+                        <Run FontWeight="Bold" FontSize="14" Text="Veloci-Wrap Combo" />
+                    </TextBlock.Inlines></TextBlock>
+            </StackPanel>
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/DinoDiner-07.png"/>
+            </Button.Background>
+        </Button>
     </WrapPanel>
 </Page>

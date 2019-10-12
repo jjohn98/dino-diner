@@ -5,11 +5,66 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="675" d:DesignWidth="1000"
       Title="SidesPage">
 
+    <Page.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="Yellow" Offset="0.0" />
+            <GradientStop Color="Red" Offset="0.25" />
+            <GradientStop Color="Blue" Offset="0.75" />
+            <GradientStop Color="LimeGreen" Offset="1.0" />
+        </LinearGradientBrush>
+    </Page.Background>
+
     <Grid>
-        <Frame Source="https:\\fortnite.com">
-        </Frame>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button Background="Yellow" Grid.Row="1" Grid.Column="0">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Fryceritops"/>
+        </Button>
+
+        <Button Background="Yellow" Grid.Row="2" Grid.Column="0">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Meteor Mac &amp; Cheese"/>
+        </Button>
+
+        <Button Background="Yellow" Grid.Row="3" Grid.Column="0">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Mezzorella Sticks"/>
+        </Button>
+
+        <Button Background="Yellow" Grid.Row="4" Grid.Column="0">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Triceritots"/>
+        </Button>
+
+        <Button Background="Yellow" Grid.Row="1" Grid.Column="2">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Small"/>
+        </Button>
+
+        <Button Background="Yellow" Grid.Row="2" Grid.Column="2">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Medium"/>
+        </Button>
+
+        <Button Background="Yellow" Grid.Row="3" Grid.Column="2">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Large"/>
+        </Button>
+
+        <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" FontSize="18" FontWeight="Bold" TextWrapping="Wrap" Text="Side"/>
+
+        <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="2" FontSize="18" FontWeight="Bold" TextWrapping="Wrap" Text="Size"/>
+
+        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" FontSize="18" FontWeight="Bold" TextWrapping="Wrap" Text="Customize Side"/>
     </Grid>
 </Page>

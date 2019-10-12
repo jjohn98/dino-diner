@@ -5,11 +5,102 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="675" d:DesignWidth="1000"
       Title="EntreesPage">
 
-    <Grid>
-        <Frame Source="https:\\www.apexlegends.com">
-        </Frame>
-    </Grid>
+    <Page.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="Yellow" Offset="0.0" />
+            <GradientStop Color="Red" Offset="0.25" />
+            <GradientStop Color="Blue" Offset="0.75" />
+            <GradientStop Color="LimeGreen" Offset="1.0" />
+        </LinearGradientBrush>
+    </Page.Background>
+
+    <WrapPanel>
+            <WrapPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="250"/>
+                    <Setter Property="Height" Value="250"/>
+                </Style>
+            </WrapPanel.Resources>
+            <Button Click="Brontowurst_Click" VerticalContentAlignment="Bottom">
+                <StackPanel VerticalAlignment="Bottom">
+                    <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap">
+                        <TextBlock.Inlines>
+                            <Run FontWeight="Bold" FontSize="14" Text="Brontowurst" />
+                        </TextBlock.Inlines></TextBlock>
+                </StackPanel>
+                <Button.Background>
+                    <ImageBrush ImageSource="Assets/DinoDiner-01.png"/>
+                </Button.Background>
+            </Button>
+            <Button Click="DinoNuggets_Click" VerticalContentAlignment="Bottom">
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Bottom">
+                        <TextBlock.Inlines>
+                            <Run FontWeight="Bold" FontSize="14" Text="Dino-Nuggets" />
+                        </TextBlock.Inlines>
+                    </TextBlock>
+                </DockPanel>
+                <Button.Background>
+                    <ImageBrush ImageSource="Assets/DinoDiner-02.png"/>
+                </Button.Background>
+            </Button>
+            <Button Click="Steakosaurus_Click" VerticalContentAlignment="Bottom">
+                <StackPanel VerticalAlignment="Bottom">
+                    <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap">
+                        <TextBlock.Inlines>
+                            <Run FontWeight="Bold" FontSize="14" Text="Steakosaurus" />
+                        </TextBlock.Inlines></TextBlock>
+                </StackPanel>
+                <Button.Background>
+                    <ImageBrush ImageSource="Assets/DinoDiner-05.png"/>
+                </Button.Background>
+            </Button>
+            <Button Click="TRexKingBurger_Click" VerticalContentAlignment="Bottom">
+                <StackPanel VerticalAlignment="Bottom">
+                    <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap">
+                        <TextBlock.Inlines>
+                            <Run FontWeight="Bold" FontSize="14" Text="T-Rex King Burger" />
+                        </TextBlock.Inlines></TextBlock>
+                </StackPanel>
+                <Button.Background>
+                    <ImageBrush ImageSource="Assets/DinoDiner-06.png"/>
+                </Button.Background>
+            </Button>
+            <Button Click="PrehistoricPBJ_Click" VerticalContentAlignment="Bottom">
+                <StackPanel VerticalAlignment="Bottom">
+                    <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap">
+                        <TextBlock.Inlines>
+                            <Run FontWeight="Bold" FontSize="14" Text="Prehistoric PB&amp;J" />
+                        </TextBlock.Inlines></TextBlock>
+                </StackPanel>
+                <Button.Background>
+                    <ImageBrush ImageSource="Assets/DinoDiner-03.png"/>
+                </Button.Background>
+            </Button>
+            <Button Click="PterodactylWings_Click" VerticalContentAlignment="Bottom">
+                <StackPanel VerticalAlignment="Bottom">
+                    <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap">
+                        <TextBlock.Inlines>
+                            <Run FontWeight="Bold" FontSize="14" Text="Pterodactyl Wings" />
+                        </TextBlock.Inlines></TextBlock>
+                </StackPanel>
+                <Button.Background>
+                    <ImageBrush ImageSource="Assets/DinoDiner-04.png"/>
+                </Button.Background>
+            </Button>
+            <Button Click="VelociWrap_Click" VerticalContentAlignment="Bottom">
+                <StackPanel VerticalAlignment="Bottom">
+                    <TextBlock VerticalAlignment="Bottom" TextWrapping="Wrap">
+                        <TextBlock.Inlines>
+                            <Run FontWeight="Bold" FontSize="14" Text="Veloci-Wrap" />
+                        </TextBlock.Inlines></TextBlock>
+                </StackPanel>
+                <Button.Background>
+                    <ImageBrush ImageSource="Assets/DinoDiner-07.png"/>
+                </Button.Background>
+            </Button>
+    </WrapPanel>
 </Page>

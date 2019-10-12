@@ -8,6 +8,15 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MenuCategorySelection">
 
+    <Page.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="Yellow" Offset="0.0" />
+            <GradientStop Color="Red" Offset="0.25" />
+            <GradientStop Color="Blue" Offset="0.75" />
+            <GradientStop Color="LimeGreen" Offset="1.0" />
+        </LinearGradientBrush>
+    </Page.Background>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -18,10 +27,46 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Button Click ="Combo_Click" Grid.Column="0" Grid.Row="0">Combos</Button>
-        <Button Click ="Entrees_Click" Grid.Column="1" Grid.Row="0">Entrees</Button>
-        <Button Click ="Sides_Click" Grid.Column="0" Grid.Row="1">Sides</Button>
-        <Button Click ="Drinks_Click" Grid.Column="1" Grid.Row="1">Drinks</Button>
+        <Button Click ="Combo_Click" Grid.Column="0" Grid.Row="0">Combos
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Yellow" Offset="0.0" />
+                    <GradientStop Color="Red" Offset="0.25" />
+                    <GradientStop Color="Blue" Offset="0.75" />
+                    <GradientStop Color="LimeGreen" Offset="1.0" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Click ="Entrees_Click" Grid.Column="1" Grid.Row="0">Entrees
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Yellow" Offset="0.0" />
+                    <GradientStop Color="Red" Offset="0.25" />
+                    <GradientStop Color="Blue" Offset="0.75" />
+                    <GradientStop Color="LimeGreen" Offset="1.0" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Click ="Sides_Click" Grid.Column="0" Grid.Row="1">Sides
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Yellow" Offset="0.0" />
+                    <GradientStop Color="Red" Offset="0.25" />
+                    <GradientStop Color="Blue" Offset="0.75" />
+                    <GradientStop Color="LimeGreen" Offset="1.0" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Click ="Drinks_Click" Grid.Column="1" Grid.Row="1">Drinks
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Yellow" Offset="0.0" />
+                    <GradientStop Color="Red" Offset="0.25" />
+                    <GradientStop Color="Blue" Offset="0.75" />
+                    <GradientStop Color="LimeGreen" Offset="1.0" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Page>

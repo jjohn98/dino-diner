@@ -1,0 +1,68 @@
+﻿<Page x:Class="PointOfSale.CustomizeFlavor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PointOfSale"
+      mc:Ignorable="d" 
+      d:DesignHeight="675" d:DesignWidth="1000"
+      Title="CustomizeFlavor">
+
+    <Page.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="Yellow" Offset="0.0" />
+            <GradientStop Color="Red" Offset="0.25" />
+            <GradientStop Color="Blue" Offset="0.75" />
+            <GradientStop Color="LimeGreen" Offset="1.0" />
+        </LinearGradientBrush>
+    </Page.Background>
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button Background="Red" Grid.Row="1" Grid.Column="0">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Cherry"/>
+        </Button>
+
+        <Button Background="Lime" Grid.Row="2" Grid.Column="0">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Lime"/>
+        </Button>
+
+        <Button Background="BlanchedAlmond" Grid.Row="3" Grid.Column="0">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Vanilla"/>
+        </Button>
+
+        <Button Background="SaddleBrown" Grid.Row="4" Grid.Column="0">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Chocolate"/>
+        </Button>
+
+        <Button Background="Orange" Grid.Row="1" Grid.Column="1">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Orange"/>
+        </Button>
+
+        <Button Background="Brown" Grid.Row="2" Grid.Column="1">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Cola"/>
+        </Button>
+
+        <Button Background="SandyBrown" Grid.Row="3" Grid.Column="1">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Root Beer"/>
+        </Button>
+
+        <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" FontSize="18" FontWeight="Bold" TextWrapping="Wrap" Text="Flavors"/>
+
+        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" FontSize="18" FontWeight="Bold" TextWrapping="Wrap" Text="Customize Flavor"/>
+    </Grid>
+</Page>
