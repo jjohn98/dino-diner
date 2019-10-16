@@ -3,13 +3,14 @@
  * Modified by: Jack Johnson
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// This class stores the information about the Prehistoric PB&J menu item.
     /// </summary>
-    public class PrehistoricPBJ : Entree
+    public class PrehistoricPBJ : Entree, INotifyPropertyChanged
     {
         /// <summary>
         /// Stores the value which determines whether or not the item has peanut butter.
@@ -19,6 +20,16 @@ namespace DinoDiner.Menu
         /// Stores the value which determines whether or not the item has jelly.
         /// </summary>
         private bool jelly = true;
+
+        /// <summary>
+        /// An event handler for PrepertyChanged events.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Constructor which initializes the default price and calories of the item.
@@ -37,7 +48,10 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldPeanutButter()
         {
+            this.peanutButter = false;
             ingredients.Remove("Peanut Butter");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -45,7 +59,10 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldJelly()
         {
+            this.jelly = false;
             ingredients.Remove("Jelly");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -56,5 +73,34 @@ namespace DinoDiner.Menu
         {
             return ("Prehistoric PB&J");
         }
+
+        /// <summary>
+        /// Returns the description of this item.
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Returns the special cases associated with this instance of the item such as holding part of the ingredients.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!peanutButter)
+                {
+                    special.Add("Hold Peanut Butter");
+                }
+                if (!jelly)
+                {
+                    special.Add("Hold Jelly");
+                }
+                return special.ToArray();
+            }
+        }
+        
     }
 }

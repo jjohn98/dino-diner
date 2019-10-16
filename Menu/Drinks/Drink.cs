@@ -61,5 +61,28 @@ namespace DinoDiner.Menu
                 this.Ice = false;
                 Ingredients.Remove("Ice");
             }
-        }
+
+            /// <summary>
+            /// 
+            /// </summary>
+            public virtual string[] Special
+            {
+                get
+                {
+                    List<string> special = new List<string>();
+                    return special.ToArray();
+                }
+
+            }
+
+            /// <summary>
+            /// Returns the description of this item.
+            /// </summary>
+            public virtual string Description
+            {
+                get { return this.ToString(); }
+            }
+
+
     }
+}
