@@ -30,5 +30,36 @@ namespace MenuTest.Entrees
             Assert.Equal<int>(2, ingredients.Count);
         }
 
+        [Fact]
+        public void HoldingSauceShouldNotifyIngredientsChange()
+        {
+            PterodactylWings pw = new PterodactylWings();
+            Assert.PropertyChanged(pw, "Ingredients", () =>
+            {
+                pw.HoldSauce();
+            });
+        }
+
+        [Fact]
+        public void HoldingSauceShouldNotifySpecialChange()
+        {
+            PterodactylWings pw = new PterodactylWings();
+            Assert.PropertyChanged(pw, "Special", () =>
+            {
+                pw.HoldSauce();
+            });
+        }
+
+        [Fact]
+        public void SpecialShouldBeCorrectAfterHoldingPeppers()
+        {
+            PterodactylWings pw = new PterodactylWings();
+            pw.HoldSauce();
+            Assert.Collection<string>(pw.Special, item =>
+            {
+                Assert.Equal("Hold Wing Sauce", item);
+            });
+        }
+
     }
 }

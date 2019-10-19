@@ -48,7 +48,10 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldTortilla()
         {
+            this.tortilla = false;
             ingredients.Remove("Tortilla");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -56,7 +59,10 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldDressing()
         {
+            this.dressing = false;
             ingredients.Remove("Caesar Dressing");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -64,7 +70,10 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldLettuce()
         {
+            this.lettuce = false;
             ingredients.Remove("Romaine Lettuce");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -72,7 +81,10 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldCheese()
         {
+            this.cheese = false;
             ingredients.Remove("Parmesan Cheese");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -82,6 +94,34 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return ("Veloci-Wrap");
+        }
+
+        /// <summary>
+        /// Returns the special cases associated with this instance of the item such as holding part of the ingredients.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!dressing)
+                {
+                    special.Add("Hold Caesar Dressing");
+                }
+                if (!lettuce)
+                {
+                    special.Add("Hold Romaine Lettuce");
+                }
+                if (!cheese)
+                {
+                    special.Add("Hold Parmesan Cheese");
+                }
+                if (!tortilla)
+                {
+                    special.Add("Hold Flour Tortilla");
+                }
+                return special.ToArray();
+            }
         }
     }
 }

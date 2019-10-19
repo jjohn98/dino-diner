@@ -33,7 +33,7 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// 
+        /// private backing variable for the combo's entree.
         /// </summary>
         private Entree entree;
 
@@ -91,7 +91,7 @@ namespace DinoDiner.Menu
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
-        /// 
+        /// Helper method the the property changed field.
         /// </summary>
         /// <param name="propertyName"></param>
         protected void NotifyOfPropertyChanged(string propertyName)
@@ -136,27 +136,25 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// IMenuItem price required to implement the interface.
+        /// </summary>
         double IMenuItem.Price
         {
             get
             {
                 return Price;
             }
-
-            set
-            {
-
-            }
         }
+
+        /// <summary>
+        /// IMenuItem calories required to implement the interface.
+        /// </summary>
         uint IMenuItem.Calories
         {
             get
             {
                 return Calories;
-            }
-            set
-            {
-
             }
         }
 
@@ -180,6 +178,17 @@ namespace DinoDiner.Menu
             return ($"{Entree} Combo");
         }
 
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        /// <summary>
+        /// String array that contains the special cases of the combo such as holding part of the ingredients.
+        /// </summary>
         public string[] Special
         {
             get

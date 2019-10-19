@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -16,7 +17,7 @@ namespace DinoDiner.Menu
             Cola, Orange, RootBeer, Lime, Cherry, Vanilla, Grape, Chocolate
         }
 
-        public abstract class Drink : IMenuItem
+        public abstract class Drink : IMenuItem, INotifyPropertyChanged , IOrderItem
         {
             /// <summary>
             /// List of ingredients specific to each drink.
@@ -29,9 +30,24 @@ namespace DinoDiner.Menu
             protected Size size = Size.Small;
 
             /// <summary>
+            /// Stores the event handler which changes when a property is changed.
+            /// </summary>
+            public event PropertyChangedEventHandler PropertyChanged;
+
+
+            /// <summary>
+            /// Helper method for the properties to be notified of changes.
+            /// </summary>
+            /// <param name="propertyName"></param>
+            protected virtual void NotifyOfPropertyChanged(string propertyName)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+
+            /// <summary>
             /// Gets and sets the price
             /// </summary>
-            public double Price { get; set; }
+            public double Price { get; protected set; }
 
             /// <summary>
             /// Gets and sets the calories
@@ -63,7 +79,7 @@ namespace DinoDiner.Menu
             }
 
             /// <summary>
-            /// 
+            /// Returns the special cases associated with this instance of the item such as holding part of the ingredients.
             /// </summary>
             public virtual string[] Special
             {

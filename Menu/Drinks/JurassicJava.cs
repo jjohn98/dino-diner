@@ -45,6 +45,10 @@ namespace DinoDiner.Menu
             set
             {
                 size = value;
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
                 switch (size)
                 {
                     case Size.Small:
@@ -83,6 +87,8 @@ namespace DinoDiner.Menu
         public void LeaveRoomForCream()
         {
             this.RoomForCream = true;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -91,6 +97,8 @@ namespace DinoDiner.Menu
         public void MakeDecaf()
         {
             this.Decaf = true;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -104,6 +112,26 @@ namespace DinoDiner.Menu
             else
             return (size.ToString() + " Decaf Jurassic Java");
 
+        }
+
+        /// <summary>
+        /// Returns the special cases associated with this instance of the item such as holding part of the ingredients.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Ice)
+                {
+                    special.Add("Add Ice");
+                }
+                if (RoomForCream)
+                {
+                    special.Add("Leave Room For Cream");
+                }
+                return special.ToArray();
+            }
         }
     }
 

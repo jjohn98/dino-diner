@@ -85,5 +85,45 @@ namespace MenuTest.Entrees
             dn.AddNugget();
             Assert.Equal<uint>(dn.Calories, 59*9);
         }
+
+        [Fact]
+        public void AddingANuggetShouldNotifyIngredients()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.PropertyChanged(dn, "Ingredients", () =>
+            {
+                dn.AddNugget();
+            });
+        }
+
+        [Fact]
+        public void AddingANuggetShouldNotifySpecial()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.PropertyChanged(dn, "Special", () =>
+            {
+                dn.AddNugget();
+            });
+        }
+
+        [Fact]
+        public void AddingANuggetShouldNotifyPrice()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.PropertyChanged(dn, "Price", () =>
+            {
+                dn.AddNugget();
+            });
+        }
+
+        [Fact]
+        public void AddingANuggetShouldNotifyCalories()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.PropertyChanged(dn, "Calories", () =>
+            {
+                dn.AddNugget();
+            });
+        }
     }
 }

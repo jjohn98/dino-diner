@@ -39,6 +39,10 @@ namespace DinoDiner.Menu
             set
             {
                 size = value;
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
                 switch (size)
                 {
                     case Size.Small:
@@ -69,6 +73,8 @@ namespace DinoDiner.Menu
         {
             ingredients.Remove("Ice");
             this.Ice = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -78,6 +84,22 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return ($"{size} {Flavor} Sodasaurus");
+        }
+
+        /// <summary>
+        /// Returns the special cases associated with this instance of the item such as holding part of the ingredients.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice)
+                {
+                    special.Add("Hold Ice");
+                }
+                return special.ToArray();
+            }
         }
     }
 

@@ -50,6 +50,10 @@ namespace DinoDiner.Menu
             this.nuggetCount += 1;
             this.Price += 0.25;
             this.Calories += 59;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Price");
+            NotifyOfPropertyChanged("Calories");
         }
 
         /// <summary>
@@ -59,6 +63,22 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return ("Dino-Nuggets");
+        }
+
+        /// <summary>
+        /// Returns the special cases associated with this instance of the item such as holding part of the ingredients.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (nuggetCount > 6)
+                {
+                    special.Add($"{nuggetCount - 6} Extra Nuggets");
+                }
+                return special.ToArray();
+            }
         }
     }
 }

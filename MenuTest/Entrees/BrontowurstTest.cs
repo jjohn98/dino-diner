@@ -55,6 +55,84 @@ namespace MenuTest.Entrees
             bw.HoldOnion();
             Assert.DoesNotContain<string>("Onion", bw.Ingredients);
         }
+
+        [Fact]
+        public void SpecialShouldBeCorrectAfterHoldingOnion()
+        {
+            Brontowurst bw = new Brontowurst();
+            bw.HoldOnion();
+            Assert.Collection<string>(bw.Special, item =>
+            {
+                Assert.Equal("Hold Onion", item);
+            });
+        }
+
+        [Fact]
+        public void SpecialShouldBeCorrectAfterHoldingPeppers()
+        {
+            Brontowurst bw = new Brontowurst();
+            bw.HoldPeppers();
+            Assert.Collection<string>(bw.Special, item =>
+            {
+                Assert.Equal("Hold Peppers", item);
+            });
+        }
+
+        [Fact]
+        public void SpecialShouldBeCorrectAfterHoldingOnionandPeppers()
+        {
+            Brontowurst bw = new Brontowurst();
+            bw.HoldOnion();
+            bw.HoldPeppers();
+            Assert.Collection<string>(bw.Special, item =>
+            {
+                Assert.Equal("Hold Onion", item);
+            },
+            item =>
+            {
+                Assert.Equal("Hold Peppers", item);
+            });
+        }
+
+        [Fact]
+        public void HoldingPeppersShouldNotifySpecialChange()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.PropertyChanged(bw, "Special", () =>
+            {
+                bw.HoldPeppers();
+            });
+        }
+
+        [Fact]
+        public void HoldingOnionShouldNotifySpecialChange()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.PropertyChanged(bw, "Special", () =>
+            {
+                bw.HoldOnion();
+            });
+        }
+
+        [Fact]
+        public void HoldingPeppersShouldNotifyIngredientsChange()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.PropertyChanged(bw, "Ingredients", () =>
+            {
+                bw.HoldPeppers();
+            });
+        }
+
+        [Fact]
+        public void HoldingOnionShouldNotifyIngredientsChange()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.PropertyChanged(bw, "Ingredients", () =>
+            {
+                bw.HoldOnion();
+            });
+        }
     }
 
 }

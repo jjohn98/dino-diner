@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -19,7 +20,7 @@ namespace DinoDiner.Menu
 
     
 
-    public abstract class Side : IMenuItem
+    public abstract class Side : IMenuItem , INotifyPropertyChanged
     {
         /// <summary>
         /// List of ingredients specific to each side.
@@ -47,7 +48,7 @@ namespace DinoDiner.Menu
         public virtual Size Size { get; set; }
 
         /// <summary>
-        /// 
+        /// Returns the special cases associated with this instance of the item such as holding part of the ingredients.
         /// </summary>
         public virtual string[] Special
         {
@@ -67,5 +68,18 @@ namespace DinoDiner.Menu
             get { return this.ToString(); }
         }
 
+        /// <summary>
+        /// Stores the event handler which changes when a property is changed.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Helper method for the properties to be notified of changes.
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected virtual void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

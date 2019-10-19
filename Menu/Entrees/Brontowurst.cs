@@ -45,7 +45,10 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldBun()
         {
+            this.bun = false;
             ingredients.Remove("Whole-Wheat Bun");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -53,7 +56,10 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldPeppers()
         {
+            this.peppers = false;
             ingredients.Remove("Peppers");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -61,7 +67,10 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldOnion()
         {
+            this.onions = false;
             ingredients.Remove("Onion");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -71,6 +80,30 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return ("Brontowurst");
+        }
+
+        /// <summary>
+        /// Returns the special cases associated with this instance of the item such as holding part of the ingredients.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!onions)
+                {
+                    special.Add("Hold Onion");
+                }
+                if (!peppers)
+                {
+                    special.Add("Hold Peppers");
+                }
+                if (!bun)
+                {
+                    special.Add("Hold Whole-Wheat Bun");
+                }
+                return special.ToArray();
+            }
         }
     }
 }

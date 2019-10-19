@@ -48,7 +48,10 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldBun()
         {
+            this.bun = false;
             ingredients.Remove("Whole-Wheat Bun");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -56,7 +59,10 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldKetchup()
         {
+            this.ketchup = false;
             ingredients.Remove("Ketchup");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -64,7 +70,10 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldPickle()
         {
+            this.pickle = false;
             ingredients.Remove("Pickle");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -72,7 +81,10 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldMustard()
         {
+            this.mustard = false;
             ingredients.Remove("Mustard");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -82,6 +94,34 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return ("Steakosaurus Burger");
+        }
+
+        /// <summary>
+        /// Returns the special cases associated with this instance of the item such as holding part of the ingredients.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!pickle)
+                {
+                    special.Add("Hold Pickle");
+                }
+                if (!mustard)
+                {
+                    special.Add("Hold Mustard");
+                }
+                if (!ketchup)
+                {
+                    special.Add("Hold Ketchup");
+                }
+                if (!bun)
+                {
+                    special.Add("Hold Whole-Wheat Bun");
+                }
+                return special.ToArray();
+            }
         }
     }
 }

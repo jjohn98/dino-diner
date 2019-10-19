@@ -38,6 +38,10 @@ namespace DinoDiner.Menu
             set
             {
                 size = value;
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
                 switch (size)
                 {
                     case Size.Small:

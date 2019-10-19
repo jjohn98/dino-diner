@@ -33,7 +33,10 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldSauce()
         {
+            this.sauce = false;
             ingredients.Remove("Wing Sauce");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// Overrides the default ToString method to return the name of the menu item as it should be seen on the menu.
@@ -42,6 +45,22 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return ("Pterodactyl Wings");
+        }
+
+        /// <summary>
+        /// Returns the special cases associated with this instance of the item such as holding part of the ingredients.
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!sauce)
+                {
+                    special.Add("Hold Wing Sauce");
+                }
+                return special.ToArray();
+            }
         }
 
     }
