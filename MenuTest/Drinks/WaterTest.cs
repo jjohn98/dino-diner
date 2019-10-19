@@ -164,5 +164,107 @@ namespace MenuTest.Drinks
             Assert.Contains("Water", w.Ingredients);
             Assert.Contains("Ice", w.Ingredients);
         }
+
+        [Fact]
+        public void ChangingSizeShouldNotifySpecialChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Special", () =>
+            {
+                w.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyPriceChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Price", () =>
+            {
+                w.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifySizeChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Size", () =>
+            {
+                w.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyCaloriesChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Calories", () =>
+            {
+                w.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void SpecialShouldBeCorrectAfterAddingIce()
+        {
+            Water w = new Water();
+            w.HoldIce();
+            Assert.Collection<string>(w.Special, item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            });
+        }
+
+        [Fact]
+        public void SpecialShouldBeCorrectAfterAddingLemon()
+        {
+            Water w = new Water();
+            w.AddLemon();
+            Assert.Collection<string>(w.Special, item =>
+            {
+                Assert.Equal("Add Lemon", item);
+            });
+        }
+
+        [Fact]
+        public void HoldingIceShouldNotifySpecialChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Special", () =>
+            {
+                w.HoldIce();
+            });
+        }
+
+        [Fact]
+        public void AddingLemonShouldNotifySpecialChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Special", () =>
+            {
+                w.AddLemon();
+            });
+        }
+
+        [Fact]
+        public void HoldingIceShouldNotifyIngredientsChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Ingredients", () =>
+            {
+                w.HoldIce();
+            });
+        }
+
+        [Fact]
+        public void AddingLemonShouldNotifyIngredientsChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Ingredients", () =>
+            {
+                w.AddLemon();
+            });
+        }
     }
 }

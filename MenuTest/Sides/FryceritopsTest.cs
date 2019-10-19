@@ -84,5 +84,45 @@ namespace MenuTest.Sides
             ft.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, ft.Size);
         }
+
+        [Fact]
+        public void ChangingSizeShouldNotifySpecialChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Special", () =>
+            {
+                tea.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyPriceChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Price", () =>
+            {
+                tea.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifySizeChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Size", () =>
+            {
+                tea.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyCaloriesChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Calories", () =>
+            {
+                tea.Size = Size.Medium;
+            });
+        }
     }
 }

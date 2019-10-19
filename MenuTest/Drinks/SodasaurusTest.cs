@@ -195,6 +195,77 @@ namespace MenuTest.Drinks
             Assert.Contains("Cane Sugar", soda.Ingredients);
             Assert.Contains("Natural Flavors", soda.Ingredients);
         }
+
+        [Fact]
+        public void HoldingIceShouldNotifyIngredientsChange()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Ingredients", () =>
+            {
+                soda.HoldIce();
+            });
+        }
+
+        [Fact]
+        public void HoldingIceShouldNotifySpecialChange()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Special", () =>
+            {
+                soda.HoldIce();
+            });
+        }
+
+        [Fact]
+        public void SpecialShouldBeCorrectAfterHoldIce()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.HoldIce();
+            Assert.Collection<string>(soda.Special, item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifySpecialChange()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Special", () =>
+            {
+                soda.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyPriceChange()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Price", () =>
+            {
+                soda.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifySizeChange()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Size", () =>
+            {
+                soda.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeShouldNotifyCaloriesChange()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Calories", () =>
+            {
+                soda.Size = Size.Medium;
+            });
+        }
     }
 
 }

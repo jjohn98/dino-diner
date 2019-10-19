@@ -125,5 +125,19 @@ namespace MenuTest.Entrees
                 dn.AddNugget();
             });
         }
+
+        [Fact]
+        public void AddingANuggetShouldChangeSpecial()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            dn.AddNugget();
+            dn.AddNugget();
+            Assert.Collection<string>(dn.Special, item =>
+            {
+                Assert.Equal("2 Extra Nuggets", item);
+            });
+
+        }
+
     }
 }
