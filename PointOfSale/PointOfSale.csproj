@@ -37,6 +37,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -62,6 +64,9 @@
     </Compile>
     <Compile Include="DrinksPage.xaml.cs">
       <DependentUpon>DrinksPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrderList.xaml.cs">
+      <DependentUpon>OrderList.xaml</DependentUpon>
     </Compile>
     <Compile Include="SidesPage.xaml.cs">
       <DependentUpon>SidesPage.xaml</DependentUpon>
@@ -108,6 +113,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="OrderList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SidesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -142,7 +151,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Menu\Menu.csproj">
+      <Project>{2f5f801d-c838-4c96-a2be-a40c4dffb719}</Project>
+      <Name>Menu</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\DinoDiner-01.png" />
     <Resource Include="Assets\DinoDiner-02.png" />

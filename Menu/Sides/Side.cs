@@ -20,7 +20,7 @@ namespace DinoDiner.Menu
 
     
 
-    public abstract class Side : IMenuItem , INotifyPropertyChanged
+    public abstract class Side : IMenuItem , INotifyPropertyChanged, IOrderItem
     {
         /// <summary>
         /// List of ingredients specific to each side.
