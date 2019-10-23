@@ -32,16 +32,26 @@ namespace PointOfSale
             InitializeComponent();
 
             Order order = new Order();
-            order.Items.Add(new PrehistoricPBJ());
-            order.Items.Add(new Sodasaurus());
-            order.Items.Add(new Triceritots());
-
-            SteakosaurusBurger sb = new SteakosaurusBurger();
-            sb.HoldPickle();
-
-            order.Items.Add(sb);
 
             DataContext = order;
+        }
+
+        private void PassDataContextToPage()
+        {
+            if (OrderUI.Content is Page page)
+            {
+                page.DataContext = OrderUI.DataContext;
+            }
+        }
+
+        private void OrderUI_LoadCompleted(object sender, NavigationEventArgs e)
+        {
+            PassDataContextToPage();
+        }
+
+        private void OrderUI_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            PassDataContextToPage();
         }
     }
 }

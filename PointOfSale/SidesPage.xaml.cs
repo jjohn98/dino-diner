@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -28,6 +29,46 @@ namespace PointOfSale
         public SidesPage()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Private backing variable holding the last created side.
+        /// </summary>
+        private Side side;
+
+        private void Fryceritops_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                side = new Fryceritops();
+                order.Items.Add(side);
+            }
+
+        }
+
+        private void Small_Click(object sender, RoutedEventArgs e)
+        {
+            side.Size = DinoDiner.Menu.Size.Small;
+            
+        }
+
+        private void Medium_Click(object sender, RoutedEventArgs e)
+        {
+            side.Size = DinoDiner.Menu.Size.Medium;
+        }
+
+        private void Large_Click(object sender, RoutedEventArgs e)
+        {
+            side.Size = DinoDiner.Menu.Size.Large;
+        }
+
+        private void Size_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is FrameworkElement element)
+            {
+                side.Size = (DinoDiner.Menu.Size)Enum.Parse(typeof(DinoDiner.Menu.Size), element.Tag.ToString());
+
+            }
         }
     }
 }
