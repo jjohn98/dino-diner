@@ -69,10 +69,20 @@ namespace DinoDiner.Menu
         /// </summary>
         public void AddLemon()
         {
-            this.Lemon = true;
-            ingredients.Add("Lemon");
-            NotifyOfPropertyChanged("Ingredients");
-            NotifyOfPropertyChanged("Special");
+            if (this.Lemon == false)
+            {
+                this.Lemon = true;
+                ingredients.Add("Lemon");
+                NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Special");
+            }
+            else
+            {
+                this.Lemon = false;
+                ingredients.Remove("Lemon");
+                NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Special");
+            }
         }
 
         /// <summary>

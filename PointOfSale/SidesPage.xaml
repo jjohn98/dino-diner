@@ -37,15 +37,15 @@
             <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Fryceritops"/>
         </Button>
 
-        <Button Background="Yellow" Grid.Row="2" Grid.Column="0">
+        <Button Click="MeteorMacAndCheese_Click" Background="Yellow" Grid.Row="2" Grid.Column="0">
             <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Meteor Mac &amp; Cheese"/>
         </Button>
 
-        <Button Background="Yellow" Grid.Row="3" Grid.Column="0">
+        <Button Click="MezzorellaSticks_Click" Background="Yellow" Grid.Row="3" Grid.Column="0">
             <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Mezzorella Sticks"/>
         </Button>
 
-        <Button Background="Yellow" Grid.Row="4" Grid.Column="0">
+        <Button Click="Triceritots_Click" Background="Yellow" Grid.Row="4" Grid.Column="0">
             <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Triceritots"/>
         </Button>
 

@@ -17,10 +17,12 @@ namespace DinoDiner.Menu
         /// </summary>
         public bool RoomForCream { get; set; }
 
+        private bool decaf;
+
         /// <summary>
         /// Bool which determines whether or not the coffee is decaffinated.
         /// </summary>
-        public bool Decaf { get; set; }
+        public bool Decaf { get { return decaf; } set { decaf = value; NotifyOfPropertyChanged("Description"); } }
 
         /// <summary>
         /// Constructor which creates the object with its default ingredients, price, and calories.
@@ -78,10 +80,18 @@ namespace DinoDiner.Menu
         /// </summary>
         public void AddIce()
         {
-            this.Ice = true;
-            ingredients.Add("Ice");
-            NotifyOfPropertyChanged("Ingredients");
+            if (this.Ice == true)
+            {
+                this.Ice = false;
+                Ingredients.Remove("Ice");
+            }
+            else
+            {
+                this.Ice = true;
+                Ingredients.Add("Ice");
+            }
             NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
         }
 
         /// <summary>
@@ -89,19 +99,39 @@ namespace DinoDiner.Menu
         /// </summary>
         public void LeaveRoomForCream()
         {
-            this.RoomForCream = true;
-            NotifyOfPropertyChanged("Ingredients");
-            NotifyOfPropertyChanged("Special");
+            if (this.RoomForCream == false)
+            {
+                this.RoomForCream = true;
+                NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Special");
+            }
+            else
+            {
+                this.RoomForCream = false;
+                NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Special");
+            }
         }
 
         /// <summary>
-        /// Sets the decaf value to true.
+        /// Toggles the decalf value.
         /// </summary>
         public void MakeDecaf()
         {
-            this.Decaf = true;
-            NotifyOfPropertyChanged("Ingredients");
-            NotifyOfPropertyChanged("Special");
+            if (this.Decaf == false)
+            {
+                this.Decaf = true;
+                NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Description");
+            }
+            else if(this.Decaf == true)
+            {
+                this.Decaf = false;
+                NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Description");
+            }
         }
 
         /// <summary>

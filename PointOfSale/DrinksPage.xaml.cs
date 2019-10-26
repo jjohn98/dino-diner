@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -36,6 +37,94 @@ namespace PointOfSale
         }
 
         /// <summary>
+        /// Initializes a new drinks page with all secondary options disabled.
+        /// </summary>
+        public DrinksPage(Drink d)
+        {
+            InitializeComponent();
+            drink = d;
+            if (drink is Tyrannotea tea)
+            {
+                FlavorButton.IsEnabled = false;
+                IceButton.IsEnabled = true;
+                LemonButton.IsEnabled = true;
+                DecafButton.IsEnabled = false;
+                SweetButton.IsEnabled = true;
+            }
+            else if (drink is Sodasaurus soda)
+            {
+                FlavorButton.IsEnabled = true;
+                IceButton.IsEnabled = true;
+                LemonButton.IsEnabled = false;
+                DecafButton.IsEnabled = false;
+                SweetButton.IsEnabled = false;
+            }
+            else if (drink is Water w)
+            {
+                FlavorButton.IsEnabled = false;
+                IceButton.IsEnabled = true;
+                LemonButton.IsEnabled = true;
+                DecafButton.IsEnabled = false;
+                SweetButton.IsEnabled = false;
+            }
+            else if (drink is JurassicJava java)
+            {
+                FlavorButton.IsEnabled = false;
+                IceButton.IsEnabled = true;
+                LemonButton.IsEnabled = false;
+                DecafButton.IsEnabled = true;
+                SweetButton.IsEnabled = false;
+            }
+        }
+
+        /// <summary>
+        /// Private backing variable for the currently selected drink.
+        /// </summary>
+        private Drink drink;
+
+        /// <summary>
+        /// Adds the appropriate drink to the order.
+        /// </summary>
+        /// <param name="s"></param>
+        private void SelectDrink(Drink d)
+        {
+            if (DataContext is Order order)
+            {
+                order.Add(d);
+            }
+        }
+
+        /// <summary>
+        /// Sets the currently seelcted item's size to small.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Small_Click(object sender, RoutedEventArgs e)
+        {
+            drink.Size = DinoDiner.Menu.Size.Small;
+        }
+
+        /// <summary>
+        /// Sets the currently selected item's size to medium.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Medium_Click(object sender, RoutedEventArgs e)
+        {
+            drink.Size = DinoDiner.Menu.Size.Medium;
+        }
+
+        /// <summary>
+        /// Sets the currently seelcted item's size to large.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Large_Click(object sender, RoutedEventArgs e)
+        {
+            drink.Size = DinoDiner.Menu.Size.Large;
+        }
+
+        /// <summary>
         /// Enables secondary options specific to this drink.
         /// </summary>
         /// <param name="sender"></param>
@@ -47,6 +136,7 @@ namespace PointOfSale
             LemonButton.IsEnabled = false;
             DecafButton.IsEnabled = false;
             SweetButton.IsEnabled = false;
+            SelectDrink(new Sodasaurus());
         }
 
         /// <summary>
@@ -61,6 +151,7 @@ namespace PointOfSale
             LemonButton.IsEnabled = true;
             DecafButton.IsEnabled = false;
             SweetButton.IsEnabled = true;
+            SelectDrink(new Tyrannotea());
         }
 
         /// <summary>
@@ -71,10 +162,11 @@ namespace PointOfSale
         private void Jurassicjava_Click(object sender, RoutedEventArgs e)
         {
             FlavorButton.IsEnabled = false;
-            IceButton.IsEnabled = false;
+            IceButton.IsEnabled = true;
             LemonButton.IsEnabled = false;
             DecafButton.IsEnabled = true;
             SweetButton.IsEnabled = false;
+            SelectDrink(new JurassicJava());
         }
 
         /// <summary>
@@ -89,6 +181,7 @@ namespace PointOfSale
             LemonButton.IsEnabled = true;
             DecafButton.IsEnabled = false;
             SweetButton.IsEnabled = false;
+            SelectDrink(new Water());
         }
 
         /// <summary>
@@ -98,27 +191,104 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Flavor_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CustomizeFlavor());
+            if (drink is Sodasaurus soda)
+            {
+                NavigationService.Navigate(new CustomizeFlavor(soda));
+            }
         }
 
         /// <summary>
-        /// 
+        /// Adds decaf to the currently selected JurassicJava.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Decaf_Click(object sender, RoutedEventArgs e)
         {
-
+            if (drink is JurassicJava java)
+            {
+                java.Decaf = true;
+            }
         }
 
         /// <summary>
-        /// 
+        /// Adds Sweetener to the currently selected Tyrannotea.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Sweet_Click(object sender, RoutedEventArgs e)
         {
+            if (drink is Tyrannotea tea)
+            {
+                    tea.AddSugar();
 
+            }
+        }
+
+        /// <summary>
+        /// Holds ice from the drink.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HoldIce_Click(object sender, RoutedEventArgs e)
+        {
+            if (drink is Tyrannotea tea)
+            {
+                tea.HoldIce();
+            }
+            else if (drink is Water w)
+            {
+                w.HoldIce();
+            }
+            else if (drink is Sodasaurus soda)
+            {
+                soda.HoldIce();
+            }
+            else if (drink is JurassicJava java)
+            {
+                java.AddIce();
+            }
+        }
+
+        /// <summary>
+        /// Holds ice from the currently selected drink.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void IceButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (drink != null)
+            {
+                drink.HoldIce();
+            }
+
+        }
+
+        /// <summary>
+        /// Adds lemon the the currently selected tea or water.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LemonButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (drink is Water w)
+            {
+                    w.AddLemon();
+                
+            }
+            else if (drink is Tyrannotea tea)
+            {
+                    tea.AddLemon();
+            }
+        }
+
+        /// <summary>
+        /// Return the user to the main page after finishing the current drink.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DoneButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MenuCategorySelection());
         }
     }
 }

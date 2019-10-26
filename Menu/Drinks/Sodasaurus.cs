@@ -12,11 +12,15 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Sodasaurus : Drink
     {
+        /// <summary>
+        /// Private backing Variable for sodasaurus flavor.
+        /// </summary>
+        private SodasaurusFlavor flavor;
 
         /// <summary>
         /// Stores the value of the flavor of the soda.
         /// </summary>
-        public SodasaurusFlavor Flavor { get; set; }
+        public SodasaurusFlavor Flavor { get { return flavor; } set { flavor = value; NotifyOfPropertyChanged("Description"); } }
 
         /// <summary>
         /// Constructor which creates the object with its default ingredients, price, and calories.
@@ -72,10 +76,18 @@ namespace DinoDiner.Menu
         /// </summary>
         public override void HoldIce()
         {
-            ingredients.Remove("Ice");
-            this.Ice = false;
-            NotifyOfPropertyChanged("Ingredients");
+            if (this.Ice == true)
+            {
+                this.Ice = false;
+                Ingredients.Remove("Ice");
+            }
+            else
+            {
+                this.Ice = true;
+                Ingredients.Add("Ice");
+            }
             NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
         }
 
         /// <summary>

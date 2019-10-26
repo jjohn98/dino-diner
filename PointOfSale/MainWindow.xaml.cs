@@ -34,8 +34,16 @@ namespace PointOfSale
             Order order = new Order();
 
             DataContext = order;
+
+            OrderUI.Navigate(new MenuCategorySelection());
+
+            OrderControl.NavService = OrderUI.NavigationService;
+
         }
 
+        /// <summary>
+        /// Passes the data context to the page as it does not have implicit access to it.
+        /// </summary>
         private void PassDataContextToPage()
         {
             if (OrderUI.Content is Page page)
@@ -44,11 +52,21 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Passes the data context upon completing a load.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OrderUI_LoadCompleted(object sender, NavigationEventArgs e)
         {
             PassDataContextToPage();
         }
 
+        /// <summary>
+        /// Passes the data context upon the data context changing.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OrderUI_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             PassDataContextToPage();

@@ -74,9 +74,19 @@ namespace DinoDiner.Menu
             /// </summary>
             public virtual void HoldIce()
             {
+            if (this.Ice == true)
+            {
                 this.Ice = false;
                 Ingredients.Remove("Ice");
             }
+            else
+            {
+                this.Ice = true;
+                Ingredients.Add("Ice");
+            }
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
+        }
 
             /// <summary>
             /// Returns the special cases associated with this instance of the item such as holding part of the ingredients.

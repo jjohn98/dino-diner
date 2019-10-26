@@ -31,43 +31,90 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        public SidesPage(Side s)
+        {
+            InitializeComponent();
+            this.side = s;
+        }
+
         /// <summary>
         /// Private backing variable holding the last created side.
         /// </summary>
         private Side side;
 
-        private void Fryceritops_Click(object sender, RoutedEventArgs e)
+        private void SelectSide(Side s)
         {
             if (DataContext is Order order)
             {
-                side = new Fryceritops();
-                order.Items.Add(side);
+                order.Add(s);
             }
-
         }
 
+        private void Fryceritops_Click(object sender, RoutedEventArgs e)
+        {
+            SelectSide(new Fryceritops());
+        }
+
+        private void MeteorMacAndCheese_Click(object sender, RoutedEventArgs e)
+        {
+            SelectSide(new MeteorMacAndCheese());
+        }
+
+        private void Triceritots_Click(object sender, RoutedEventArgs e)
+        {
+            SelectSide(new Triceritots());
+        }
+
+        private void MezzorellaSticks_Click(object sender, RoutedEventArgs e)
+        {
+            SelectSide(new MezzorellaSticks());
+        }
+
+        /// <summary>
+        /// Sets the currently seelcted item's size to small.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Small_Click(object sender, RoutedEventArgs e)
         {
             side.Size = DinoDiner.Menu.Size.Small;
-            
+            NavigationService.Navigate(new MenuCategorySelection());
         }
 
+        /// <summary>
+        /// Sets the currently selected item's size to medium.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Medium_Click(object sender, RoutedEventArgs e)
         {
             side.Size = DinoDiner.Menu.Size.Medium;
+            NavigationService.Navigate(new MenuCategorySelection());
         }
 
+        /// <summary>
+        /// Sets the currently seelcted item's size to large.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Large_Click(object sender, RoutedEventArgs e)
         {
             side.Size = DinoDiner.Menu.Size.Large;
+            NavigationService.Navigate(new MenuCategorySelection());
         }
 
+        /// <summary>
+        /// Changes the size depending on which is clicked
+        /// Currently unused.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Size_Click(object sender, RoutedEventArgs e)
         {
             if (sender is FrameworkElement element)
             {
                 side.Size = (DinoDiner.Menu.Size)Enum.Parse(typeof(DinoDiner.Menu.Size), element.Tag.ToString());
-
+                NavigationService.Navigate(new MenuCategorySelection());
             }
         }
     }

@@ -50,36 +50,39 @@
             <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Water"/>
         </Button>
 
-        <Button Background="DeepSkyBlue" Name="SmallButton" Grid.Row="1" Grid.Column="1">
+        <Button Click="Small_Click" Background="DeepSkyBlue" Name="SmallButton" Grid.Row="1" Grid.Column="1">
             <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Small"/>
         </Button>
 
-        <Button Background="DeepSkyBlue" Name="MediumButton" Grid.Row="2" Grid.Column="1">
+        <Button Click="Medium_Click" Background="DeepSkyBlue" Name="MediumButton" Grid.Row="2" Grid.Column="1">
             <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Medium"/>
         </Button>
 
-        <Button Background="DeepSkyBlue" Name="LargeButton" Grid.Row="3" Grid.Column="1">
+        <Button Click="Large_Click" Background="DeepSkyBlue" Name="LargeButton" Grid.Row="3" Grid.Column="1">
             <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Large"/>
         </Button>
 
         <Button Background="DeepSkyBlue" Name="SweetButton" Click="Sweet_Click" Grid.Row="5" Grid.Column="2">
-            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Add Sweetener" IsEnabled="False"/>
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Toggle Sweetener" IsEnabled="False"/>
         </Button>
 
         <Button Background="DeepSkyBlue" Name="DecafButton" Click="Decaf_Click" Grid.Row="4" Grid.Column="2">
-            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Make Decaf" IsEnabled="False"/>
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Toggle Decaf" IsEnabled="False"/>
         </Button>
 
         <Button Background="DeepSkyBlue" Name="FlavorButton" Click="Flavor_Click" Grid.Row="1" Grid.Column="2">
             <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Choose Flavor" IsEnabled="False"/>
         </Button>
 
-        <Button Background="DeepSkyBlue" Name="LemonButton" Grid.Row="2" Grid.Column="2">
-            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Add Lemon" IsEnabled="False"/>
+        <Button Click="LemonButton_Click" Background="DeepSkyBlue" Name="LemonButton" Grid.Row="2" Grid.Column="2">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Toggle Lemon" IsEnabled="False"/>
         </Button>
 
-        <Button Background="DeepSkyBlue" Name="IceButton" Grid.Row="3" Grid.Column="2">
-            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Hold Ice" IsEnabled="False"/>
+        <Button Click="IceButton_Click" Background="DeepSkyBlue" Name="IceButton" Grid.Row="3" Grid.Column="2">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Toggle Ice" IsEnabled="False"/>
+        </Button>
+        <Button Click="DoneButton_Click" Background="Red" Name="DoneButton" Grid.Row="5" Grid.Column="0">
+            <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Done" IsEnabled="False"/>
         </Button>
 
         <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" FontSize="18" FontWeight="Bold" TextWrapping="Wrap" Text="Drink"/>

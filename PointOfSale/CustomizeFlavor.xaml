@@ -33,31 +33,31 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button Background="Red" Grid.Row="1" Grid.Column="0">
+        <Button Click="Cherry_Click" Background="Red" Grid.Row="1" Grid.Column="0">
             <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Cherry"/>
         </Button>
 
-        <Button Background="Lime" Grid.Row="2" Grid.Column="0">
+        <Button Click="Lime_Click" Background="Lime" Grid.Row="2" Grid.Column="0">
             <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Lime"/>
         </Button>
 
-        <Button Background="BlanchedAlmond" Grid.Row="3" Grid.Column="0">
+        <Button Click="Vanilla_Click" Background="BlanchedAlmond" Grid.Row="3" Grid.Column="0">
             <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Vanilla"/>
         </Button>
 
-        <Button Background="SaddleBrown" Grid.Row="4" Grid.Column="0">
+        <Button Click="Chocolate_Click" Background="SaddleBrown" Grid.Row="4" Grid.Column="0">
             <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Chocolate"/>
         </Button>
 
-        <Button Background="Orange" Grid.Row="1" Grid.Column="1">
+        <Button Click="Orange_Click"  Background="Orange" Grid.Row="1" Grid.Column="1">
             <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Orange"/>
         </Button>
 
-        <Button Background="Brown" Grid.Row="2" Grid.Column="1">
+        <Button Click="Cola_Click" Background="Brown" Grid.Row="2" Grid.Column="1">
             <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Cola"/>
         </Button>
 
-        <Button Background="SandyBrown" Grid.Row="3" Grid.Column="1">
+        <Button Click="RootBeer_Click" Background="SandyBrown" Grid.Row="3" Grid.Column="1">
             <TextBlock FontSize="14" FontWeight="Bold" TextWrapping="Wrap" Text="Root Beer"/>
         </Button>
 

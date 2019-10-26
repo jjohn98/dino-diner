@@ -71,32 +71,31 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// Adds sugar to the list of ingredients and doubles the calorie value for the tea.
-        /// </summary>
-        public void AddSugar()
-        {
-            this.Sugar = true;
-            ingredients.Add("Cane Sugar");
-            this.Calories *= 2;
-            NotifyOfPropertyChanged("Ingredients");
-            NotifyOfPropertyChanged("Special");
-        }
-
-        /// <summary>
-        /// Adds lemon to the list of ingredients.
+        /// Adds Lemon to the list of ingredients.
         /// </summary>
         public void AddLemon()
         {
-            this.Lemon = true;
-            ingredients.Add("Lemon");
-            NotifyOfPropertyChanged("Ingredients");
-            NotifyOfPropertyChanged("Special");
+            if (this.Lemon == false)
+            {
+                this.Lemon = true;
+                ingredients.Add("Lemon");
+                NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Description");
+            }
+            else
+            {
+                this.Lemon = false;
+                ingredients.Remove("Lemon");
+                NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Special");
+            }
         }
 
         /// <summary>
-        /// Removes sugar only if sugar has already been added.
+        /// Adds sugar to the list of ingredients and doubles the calorie value for the tea.
         /// </summary>
-        public void RemoveSugar()
+        public void AddSugar()
         {
             if (this.Sugar == true)
             {
@@ -105,10 +104,16 @@ namespace DinoDiner.Menu
                 this.Calories = this.Calories / 2;
                 NotifyOfPropertyChanged("Ingredients");
                 NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Description");
             }
             else
             {
-                Console.WriteLine("No sugar to remove.");
+                this.Sugar = true;
+                ingredients.Add("Cane Sugar");
+                this.Calories = this.Calories * 2;
+                NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Description");
             }
         }
 
@@ -129,10 +134,18 @@ namespace DinoDiner.Menu
         /// </summary>
         public override void HoldIce()
         {
-            ingredients.Remove("Ice");
-            this.Ice = false;
-            NotifyOfPropertyChanged("Ingredients");
+            if (this.Ice == true)
+            {
+                this.Ice = false;
+                Ingredients.Remove("Ice");
+            }
+            else
+            {
+                this.Ice = true;
+                Ingredients.Add("Ice");
+            }
             NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Ingredients");
         }
 
         /// <summary>
