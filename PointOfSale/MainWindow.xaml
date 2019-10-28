@@ -9,6 +9,16 @@
     
     <DockPanel>
         <local:OrderList x:Name="OrderControl" DockPanel.Dock="Right" Width="200" Background="LightSteelBlue"></local:OrderList>
+        <Grid DockPanel.Dock="Bottom" Height="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+                <Button Name="ReturnButton" Click="ReturnButton_Click" Grid.Column="1">
+                    Return to Menu Category Selection
+            </Button>
+        </Grid>
         <Frame Name="OrderUI" Source="MenuCategorySelection.xaml" LoadCompleted="OrderUI_LoadCompleted" DataContextChanged="OrderUI_DataContextChanged"></Frame>
     </DockPanel>
 </Window>

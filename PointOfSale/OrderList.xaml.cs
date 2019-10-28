@@ -24,7 +24,7 @@ namespace PointOfSale
     public partial class OrderList : UserControl
     {
         /// <summary>
-        /// 
+        /// Stores the navigation service from the main page to link the main UI to the order list.
         /// </summary>
         public NavigationService NavService { get; set; }
 
@@ -57,7 +57,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ListBox_SelectionChanged(object sender, EventArgs e)
         {
             if (OrderItems.SelectedItem is Side side)
             {

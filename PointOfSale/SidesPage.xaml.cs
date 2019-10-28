@@ -46,7 +46,9 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
+                this.side = s;
                 order.Add(s);
+                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
         }
 
@@ -77,8 +79,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Small_Click(object sender, RoutedEventArgs e)
         {
-            side.Size = DinoDiner.Menu.Size.Small;
-            NavigationService.Navigate(new MenuCategorySelection());
+                side.Size = DinoDiner.Menu.Size.Small;
+                NavigationService.Navigate(new MenuCategorySelection());
         }
 
         /// <summary>
@@ -88,8 +90,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Medium_Click(object sender, RoutedEventArgs e)
         {
-            side.Size = DinoDiner.Menu.Size.Medium;
-            NavigationService.Navigate(new MenuCategorySelection());
+                side.Size = DinoDiner.Menu.Size.Medium;
+                NavigationService.Navigate(new MenuCategorySelection());
         }
 
         /// <summary>
@@ -99,8 +101,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Large_Click(object sender, RoutedEventArgs e)
         {
-            side.Size = DinoDiner.Menu.Size.Large;
-            NavigationService.Navigate(new MenuCategorySelection());
+                side.Size = DinoDiner.Menu.Size.Large;
+                NavigationService.Navigate(new MenuCategorySelection());
         }
 
         /// <summary>

@@ -90,7 +90,9 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
+                this.drink = d;
                 order.Add(d);
+                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
         }
 

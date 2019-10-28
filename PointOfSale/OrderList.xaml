@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="Order" Grid.Row="0" Grid.Column="0" FontWeight="Bold" TextAlignment="Right"/>
         <TextBlock Text="#" Grid.Row="0" Grid.Column="1" FontWeight="Bold" TextAlignment="Left" Margin="5,0,0,0"/>
-        <ListBox Name="OrderItems" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Items, UpdateSourceTrigger=PropertyChanged}" IsSynchronizedWithCurrentItem="True" SelectionChanged="ListBox_SelectionChanged">
+        <ListBox Name="OrderItems" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Items, UpdateSourceTrigger=PropertyChanged}" IsSynchronizedWithCurrentItem="True" SelectionChanged="ListBox_SelectionChanged" MouseDoubleClick="ListBox_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="190">

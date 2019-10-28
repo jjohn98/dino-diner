@@ -51,6 +51,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 order.Add(e);
+                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
             }
         }
 
@@ -91,7 +92,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void PrehistoricPBJ_Click(object sender, RoutedEventArgs e)
         {
-            SelectEntree(new PrehistoricPBJ());
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            SelectEntree(pbj);
+            NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj));
         }
 
         /// <summary>
