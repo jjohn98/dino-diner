@@ -164,7 +164,7 @@ namespace MenuTest.Drinks
             tea.AddSugar();
             Assert.True(tea.Sugar);
             Assert.Equal<uint>(16, tea.Calories);
-            tea.RemoveSugar();
+            tea.AddSugar();
             Assert.False(tea.Sugar);
             Assert.Equal<uint>(8, tea.Calories);
         }

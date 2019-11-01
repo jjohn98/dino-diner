@@ -80,15 +80,15 @@ namespace DinoDiner.Menu
         /// </summary>
         public void AddIce()
         {
-            if (this.Ice == true)
+            if (Ice == false)
             {
-                this.Ice = false;
-                Ingredients.Remove("Ice");
+                Ice = true;
+                ingredients.Add("Ice");
             }
             else
             {
-                this.Ice = true;
-                Ingredients.Add("Ice");
+                Ice = false;
+                ingredients.Remove("Ice");
             }
             NotifyOfPropertyChanged("Special");
             NotifyOfPropertyChanged("Ingredients");

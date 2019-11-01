@@ -62,7 +62,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Brontowurst_Click(object sender, RoutedEventArgs e)
         {
-            SelectEntree(new Brontowurst());
+            Brontowurst brat = new Brontowurst();
+            SelectEntree(brat);
+            NavigationService.Navigate(new CustomizeBrontowurst(brat));
         }
 
         /// <summary>
@@ -72,7 +74,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void DinoNuggets_Click(object sender, RoutedEventArgs e)
         {
-            SelectEntree(new DinoNuggets());
+            DinoNuggets nugs = new DinoNuggets();
+            SelectEntree(nugs);
+            NavigationService.Navigate(new CustomizeDinoNuggets(nugs));
         }
 
         /// <summary>
@@ -82,7 +86,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Steakosaurus_Click(object sender, RoutedEventArgs e)
         {
-            SelectEntree(new SteakosaurusBurger());
+            SteakosaurusBurger borgar = new SteakosaurusBurger();
+            SelectEntree(borgar);
+            NavigationService.Navigate(new CustomizeSteakosaurusBurger(borgar));
         }
 
         /// <summary>
@@ -104,7 +110,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void PterodactylWings_Click(object sender, RoutedEventArgs e)
         {
-            SelectEntree(new PterodactylWings());
+            PterodactylWings wings = new PterodactylWings();
+            SelectEntree(wings);
+            NavigationService.Navigate(new CustomizePterodactylWings(wings));
         }
 
         /// <summary>
@@ -114,7 +122,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void VelociWrap_Click(object sender, RoutedEventArgs e)
         {
-            SelectEntree(new VelociWrap());
+            VelociWrap wrap = new VelociWrap();
+            SelectEntree(wrap);
+            NavigationService.Navigate(new CustomizeVelociwrap(wrap));
         }
 
         /// <summary>
@@ -124,7 +134,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void TRexKingBurger_Click(object sender, RoutedEventArgs e)
         {
-            SelectEntree(new TRexKingBurger());
+            TRexKingBurger borgar = new TRexKingBurger();
+            SelectEntree(borgar);
+            NavigationService.Navigate(new CustomizeTRexKingBurger(borgar));
         }
     }
 }

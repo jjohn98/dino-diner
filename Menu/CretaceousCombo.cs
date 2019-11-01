@@ -46,7 +46,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets and sets the side.
         /// </summary>
-        public Side Side { get { return Side; } set { side = value; side.Size = size; } }
+        public Side Side { get { return side; } set { side = value; side.Size = size; } }
 
         /// <summary>
         /// Stores the drink for the combo.
@@ -56,7 +56,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets and sets the drink.
         /// </summary>
-        public Drink Drink { get { return Drink; } set { drink = value; drink.Size = size; } }
+        public Drink Drink { get { return drink; } set { drink = value; drink.Size = size; } }
 
         /// <summary>
         /// Gets the price for the combo including the combo discount.

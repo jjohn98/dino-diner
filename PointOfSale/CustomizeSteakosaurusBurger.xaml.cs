@@ -1,4 +1,4 @@
-﻿/// CustomizePrehistoricPBJ.cs
+﻿/// CustomizeSteakosaurusBurger.cs
 /// Author: Jack Johnson
 using System;
 using System.Collections.Generic;
@@ -19,24 +19,24 @@ using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizePrehistoricPBJ.xaml
+    /// Interaction logic for CustomizeSteakosaurusBurger.xaml
     /// </summary>
-    public partial class CustomizePrehistoricPBJ : Page
+    public partial class CustomizeSteakosaurusBurger : Page
     {
         /// <summary>
         /// Private backing variable.
         /// </summary>
-        private PrehistoricPBJ pbj = new PrehistoricPBJ();
+        private SteakosaurusBurger borgar;
 
         /// <summary>
         /// Constructor which initializes the private backing variable.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public CustomizePrehistoricPBJ(PrehistoricPBJ sandwich)
+        public CustomizeSteakosaurusBurger(SteakosaurusBurger b)
         {
             InitializeComponent();
-            this.pbj = sandwich;
+            this.borgar = b;
         }
 
         /// <summary>
@@ -44,9 +44,9 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void HoldPeanutButterButton_Click(object sender, RoutedEventArgs e)
+        private void HoldPickleButton_Click(object sender, RoutedEventArgs e)
         {
-            this.pbj.HoldPeanutButter();
+            this.borgar.HoldPickle();
         }
 
         /// <summary>
@@ -54,9 +54,29 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void HoldJellyButton_Click(object sender, RoutedEventArgs e)
+        private void HoldBunButton_Click(object sender, RoutedEventArgs e)
         {
-            this.pbj.HoldJelly();
+            this.borgar.HoldBun();
+        }
+
+        /// <summary>
+        /// Holds the specified addition from the entree.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HoldKetchupButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.borgar.HoldKetchup();
+        }
+
+        /// <summary>
+        /// Holds the specified addition from the entree.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HoldMustardButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.borgar.HoldMustard();
         }
 
         /// <summary>
@@ -66,14 +86,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void DoneButton_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                NavigationService.GoBack();
-            }
-            catch (Exception exception)
-            {
-                cantGoBack.IsOpen = true;
-            }
+            NavigationService.GoBack();
         }
     }
 }
