@@ -37,19 +37,23 @@
         <TextBlock Name="SideName" Text="Fryceritops"></TextBlock>
     </Button>
 
+        <Button Background="Lime" Grid.Row="1" Grid.Column="1" x:Name="ComboEntree" Click="ComboEntree_Click" DockPanel.Dock="Left">
+            <TextBlock Name="EntreeName" Text="Entree"></TextBlock>
+        </Button>
+
         <Button Background="Lime" Grid.Row="1" Grid.Column="3" x:Name="ComboDrink" Click="ComboDrink_Click" DockPanel.Dock="Right">
         <TextBlock Name="DrinkName" Text="Sodasaurus"></TextBlock>
     </Button>
 
-        <Button Background="Lime" Grid.Row="3" Grid.Column="0">
+        <Button Name="SmallButton" Click="SmallButton_Click" Background="Lime" Grid.Row="3" Grid.Column="0">
             <TextBlock Text="Small"/>
         </Button>
 
-        <Button Background="Lime" Grid.Row="3" Grid.Column="1">
+        <Button Name="MediumButton" Click="MediumButton_Click" Background="Lime" Grid.Row="3" Grid.Column="1">
             <TextBlock Text="Medium"></TextBlock>
         </Button>
 
-        <Button Background="Lime" Grid.Row="3" Grid.Column="2">
+        <Button Name="LargeButton" Click="LargeButton_Click" Background="Lime" Grid.Row="3" Grid.Column="2">
             <TextBlock Text="Large"/>
         </Button>
 

@@ -103,6 +103,11 @@ namespace PointOfSale
             {
                 NavService?.Navigate(new CustomizePrehistoricPBJ(pbj));
             }
+
+            if (OrderItems.SelectedItem is CretaceousCombo combo)
+            {
+                NavService?.Navigate(new CustomizeCombo(combo.Entree.ToString(),combo));
+            }
         }
 
         /// <summary>

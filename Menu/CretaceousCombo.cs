@@ -12,7 +12,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class definition for the combo which includes an entree, side, and drink.
     /// </summary>
-    public class CretaceousCombo : IMenuItem, INotifyPropertyChanged
+    public class CretaceousCombo : IMenuItem, INotifyPropertyChanged, IOrderItem
     {
         /// <summary>
         /// Stores the entree for the combo.
@@ -46,7 +46,23 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets and sets the side.
         /// </summary>
-        public Side Side { get { return side; } set { side = value; side.Size = size; } }
+        public Side Side { get { return side; }
+            set
+            {
+                side = value;
+                side.Size = size;
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Side");
+                NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                side.PropertyChanged += (object sender, PropertyChangedEventArgs args) =>
+                {
+                    NotifyOfPropertyChanged(args.PropertyName);
+                    NotifyOfPropertyChanged("Special");
+                };
+            }
+        }
 
         /// <summary>
         /// Stores the drink for the combo.
@@ -56,7 +72,22 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets and sets the drink.
         /// </summary>
-        public Drink Drink { get { return drink; } set { drink = value; drink.Size = size; } }
+        public Drink Drink { get { return drink; }
+            set
+            {
+                drink = value;
+                drink.Size = size;
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Side");
+                NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                drink.PropertyChanged += (object sender, PropertyChangedEventArgs args) =>
+                {
+                    NotifyOfPropertyChanged(args.PropertyName);
+                    NotifyOfPropertyChanged("Special");
+                };
+            } }
 
         /// <summary>
         /// Gets the price for the combo including the combo discount.
@@ -114,6 +145,7 @@ namespace DinoDiner.Menu
                 Drink.Size = value;
                 Side.Size = value;
 
+                NotifyOfPropertyChanged("Description");
                 NotifyOfPropertyChanged("Special");
                 NotifyOfPropertyChanged("Size");
                 NotifyOfPropertyChanged("Price");

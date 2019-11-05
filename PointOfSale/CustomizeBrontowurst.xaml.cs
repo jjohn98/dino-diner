@@ -29,6 +29,11 @@ namespace PointOfSale
         private Brontowurst sausage;
 
         /// <summary>
+        /// Private backing combo.
+        /// </summary>
+        private CretaceousCombo combo;
+
+        /// <summary>
         /// Constructor which initializes the private backing variable.
         /// </summary>
         /// <param name="sender"></param>
@@ -40,13 +45,35 @@ namespace PointOfSale
         }
 
         /// <summary>
+        /// Constructor which initializes the private backing combo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public CustomizeBrontowurst(CretaceousCombo c)
+        {
+            InitializeComponent();
+            this.combo = c;
+        }
+
+        /// <summary>
         /// Holds the specified addition from the entree.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void HoldOnionButton_Click(object sender, RoutedEventArgs e)
         {
-            this.sausage.HoldOnion();
+            if (combo == null)
+            {
+                this.sausage.HoldOnion();
+            }
+            else
+            {
+                if (combo.Entree is Brontowurst brat)
+                {
+                    brat.HoldOnion();
+                }
+            }
+            
         }
 
         /// <summary>
@@ -56,7 +83,17 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void HoldPeppersButton_Click(object sender, RoutedEventArgs e)
         {
-            this.sausage.HoldPeppers();
+            if (combo == null)
+            {
+                this.sausage.HoldPeppers();
+            }
+            else
+            {
+                if (combo.Entree is Brontowurst brat)
+                {
+                    brat.HoldPeppers();
+                }
+            }
         }
 
         /// <summary>
@@ -66,7 +103,17 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void HoldBunButton_Click(object sender, RoutedEventArgs e)
         {
-            this.sausage.HoldBun();
+            if (combo == null)
+            {
+                this.sausage.HoldBun();
+            }
+            else
+            {
+                if (combo.Entree is Brontowurst brat)
+                {
+                    brat.HoldBun();
+                }
+            }
         }
 
         /// <summary>

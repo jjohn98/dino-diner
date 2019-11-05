@@ -29,6 +29,11 @@ namespace PointOfSale
         private DinoNuggets nugs;
 
         /// <summary>
+        /// Private backing combo.
+        /// </summary>
+        private CretaceousCombo combo;
+
+        /// <summary>
         /// Constructor which initializes the private backing variable.
         /// </summary>
         /// <param name="sender"></param>
@@ -40,13 +45,34 @@ namespace PointOfSale
         }
 
         /// <summary>
+        /// Constructor which initializes the private backing combo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public CustomizeDinoNuggets(CretaceousCombo c)
+        {
+            InitializeComponent();
+            this.combo = c;
+        }
+
+        /// <summary>
         /// Adds a nugget to the selected dino nuggets entree.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void AddNuggetButton_Click(object sender, RoutedEventArgs e)
         {
-            nugs.AddNugget();
+            if (combo == null)
+            {
+                this.nugs.AddNugget();
+            }
+            else
+            {
+                if (combo.Entree is DinoNuggets nugs)
+                {
+                    nugs.AddNugget();
+                }
+            }
         }
         
         /// <summary>

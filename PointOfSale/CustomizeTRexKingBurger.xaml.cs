@@ -29,6 +29,11 @@ namespace PointOfSale
         private TRexKingBurger borgar;
 
         /// <summary>
+        /// Private backing combo.
+        /// </summary>
+        private CretaceousCombo combo;
+
+        /// <summary>
         /// Constructor which initializes the private backing variable.
         /// </summary>
         /// <param name="b"></param>
@@ -39,13 +44,33 @@ namespace PointOfSale
         }
 
         /// <summary>
+        /// Constructor which initializes the private backing combo.
+        /// </summary>
+        /// <param name="b"></param>
+        public CustomizeTRexKingBurger(CretaceousCombo c)
+        {
+            InitializeComponent();
+            this.combo = c;
+        }
+
+        /// <summary>
         /// Holds the specified addition from the entree.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void HoldKetchupButton_Click(object sender, RoutedEventArgs e)
         {
-            this.borgar.HoldKetchup();
+            if (combo == null)
+            {
+                this.borgar.HoldKetchup();
+            }
+            else
+            {
+                if (combo.Entree is TRexKingBurger t)
+                {
+                    t.HoldKetchup();
+                }
+            }
         }
 
         /// <summary>
@@ -55,7 +80,17 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void HoldMustardButton_Click(object sender, RoutedEventArgs e)
         {
-            this.borgar.HoldMustard();
+            if (combo == null)
+            {
+                this.borgar.HoldMustard();
+            }
+            else
+            {
+                if (combo.Entree is TRexKingBurger t)
+                {
+                    t.HoldMustard();
+                }
+            }
         }
 
         /// <summary>
@@ -75,7 +110,17 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void HoldBunButton_Click(object sender, RoutedEventArgs e)
         {
-            this.borgar.HoldBun();
+            if (combo == null)
+            {
+                this.borgar.HoldBun();
+            }
+            else
+            {
+                if (combo.Entree is TRexKingBurger t)
+                {
+                    t.HoldBun();
+                }
+            }
         }
 
         /// <summary>
@@ -85,7 +130,17 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void HoldPickleButton_Click(object sender, RoutedEventArgs e)
         {
-            this.borgar.HoldPickle();
+            if (combo == null)
+            {
+                this.borgar.HoldPickle();
+            }
+            else
+            {
+                if (combo.Entree is TRexKingBurger t)
+                {
+                    t.HoldPickle();
+                }
+            }
         }
 
         /// <summary>
@@ -95,7 +150,17 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void HoldLettuceButton_Click(object sender, RoutedEventArgs e)
         {
-            this.borgar.HoldLettuce();
+            if (combo == null)
+            {
+                this.borgar.HoldLettuce();
+            }
+            else
+            {
+                if (combo.Entree is TRexKingBurger t)
+                {
+                    t.HoldLettuce();
+                }
+            }
         }
 
         /// <summary>
@@ -105,7 +170,17 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void HoldOnionButton_Click(object sender, RoutedEventArgs e)
         {
-            this.borgar.HoldOnion();
+            if (combo == null)
+            {
+                this.borgar.HoldOnion();
+            }
+            else
+            {
+                if (combo.Entree is TRexKingBurger t)
+                {
+                    t.HoldOnion();
+                }
+            }
         }
 
         /// <summary>
@@ -115,7 +190,17 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void HoldMayoButton_Click(object sender, RoutedEventArgs e)
         {
-            this.borgar.HoldMayo();
+            if (combo == null)
+            {
+                this.borgar.HoldMayo();
+            }
+            else
+            {
+                if (combo.Entree is TRexKingBurger t)
+                {
+                    t.HoldMayo();
+                }
+            }
         }
     }
 }

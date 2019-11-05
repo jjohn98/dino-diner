@@ -37,18 +37,33 @@ namespace PointOfSale
             this.side = s;
         }
 
+        public SidesPage(CretaceousCombo c)
+        {
+            InitializeComponent();
+            this.combo = c;
+        }
+
         /// <summary>
         /// Private backing variable holding the last created side.
         /// </summary>
         private Side side;
 
+        private CretaceousCombo combo;
+
         private void SelectSide(Side s)
         {
             if (DataContext is Order order)
             {
-                this.side = s;
-                order.Add(s);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                if (combo == null)
+                {
+                    this.side = s;
+                    order.Add(s);
+                    CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                }
+                else
+                {
+                    combo.Side = s;
+                }
             }
         }
 
@@ -79,8 +94,15 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Small_Click(object sender, RoutedEventArgs e)
         {
+            if (combo == null)
+            {
                 side.Size = DinoDiner.Menu.Size.Small;
                 NavigationService.Navigate(new MenuCategorySelection());
+            }
+            else
+            {
+                combo.Side.Size = DinoDiner.Menu.Size.Small;
+            }
         }
 
         /// <summary>
@@ -90,8 +112,15 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Medium_Click(object sender, RoutedEventArgs e)
         {
+            if (combo == null)
+            {
                 side.Size = DinoDiner.Menu.Size.Medium;
                 NavigationService.Navigate(new MenuCategorySelection());
+            }
+            else
+            {
+                combo.Side.Size = DinoDiner.Menu.Size.Medium;
+            }
         }
 
         /// <summary>
@@ -101,8 +130,15 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Large_Click(object sender, RoutedEventArgs e)
         {
+            if (combo == null)
+            {
                 side.Size = DinoDiner.Menu.Size.Large;
                 NavigationService.Navigate(new MenuCategorySelection());
+            }
+            else
+            {
+                combo.Side.Size = DinoDiner.Menu.Size.Large;
+            }
         }
 
         /// <summary>

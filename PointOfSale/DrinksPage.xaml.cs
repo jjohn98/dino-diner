@@ -77,6 +77,49 @@ namespace PointOfSale
             }
         }
 
+        private CretaceousCombo combo;
+
+        /// <summary>
+        /// Initializes a new drinks page with all secondary options disabled.
+        /// </summary>
+        public DrinksPage(CretaceousCombo c)
+        {
+            InitializeComponent();
+            this.combo = c;
+            if (combo.Drink is Tyrannotea tea)
+            {
+                FlavorButton.IsEnabled = false;
+                IceButton.IsEnabled = true;
+                LemonButton.IsEnabled = true;
+                DecafButton.IsEnabled = false;
+                SweetButton.IsEnabled = true;
+            }
+            else if (combo.Drink is Sodasaurus soda)
+            {
+                FlavorButton.IsEnabled = true;
+                IceButton.IsEnabled = true;
+                LemonButton.IsEnabled = false;
+                DecafButton.IsEnabled = false;
+                SweetButton.IsEnabled = false;
+            }
+            else if (combo.Drink is Water w)
+            {
+                FlavorButton.IsEnabled = false;
+                IceButton.IsEnabled = true;
+                LemonButton.IsEnabled = true;
+                DecafButton.IsEnabled = false;
+                SweetButton.IsEnabled = false;
+            }
+            else if (combo.Drink is JurassicJava java)
+            {
+                FlavorButton.IsEnabled = false;
+                IceButton.IsEnabled = true;
+                LemonButton.IsEnabled = false;
+                DecafButton.IsEnabled = true;
+                SweetButton.IsEnabled = false;
+            }
+        }
+
         /// <summary>
         /// Private backing variable for the currently selected drink.
         /// </summary>
@@ -90,9 +133,16 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                this.drink = d;
-                order.Add(d);
-                CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                if (combo == null)
+                {
+                    this.drink = d;
+                    order.Add(d);
+                    CollectionViewSource.GetDefaultView(order.Items).MoveCurrentToLast();
+                }
+                else
+                {
+                    combo.Drink = d;
+                }
             }
         }
 
@@ -103,7 +153,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Small_Click(object sender, RoutedEventArgs e)
         {
-            drink.Size = DinoDiner.Menu.Size.Small;
+            if (combo == null)
+            {
+                drink.Size = DinoDiner.Menu.Size.Small;
+                NavigationService.Navigate(new MenuCategorySelection());
+            }
+            else
+            {
+                combo.Drink.Size = DinoDiner.Menu.Size.Small;
+                NavigationService.GoBack();
+            }
         }
 
         /// <summary>
@@ -113,7 +172,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Medium_Click(object sender, RoutedEventArgs e)
         {
-            drink.Size = DinoDiner.Menu.Size.Medium;
+            if (combo == null)
+            {
+                drink.Size = DinoDiner.Menu.Size.Medium;
+                NavigationService.Navigate(new MenuCategorySelection());
+            }
+            else
+            {
+                combo.Drink.Size = DinoDiner.Menu.Size.Medium;
+                NavigationService.GoBack();
+            }
         }
 
         /// <summary>
@@ -123,7 +191,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Large_Click(object sender, RoutedEventArgs e)
         {
-            drink.Size = DinoDiner.Menu.Size.Large;
+            if (combo == null)
+            {
+                drink.Size = DinoDiner.Menu.Size.Large;
+                NavigationService.Navigate(new MenuCategorySelection());
+            }
+            else
+            {
+                combo.Drink.Size = DinoDiner.Menu.Size.Large;
+                NavigationService.GoBack();
+            }
         }
 
         /// <summary>
@@ -193,9 +270,19 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Flavor_Click(object sender, RoutedEventArgs e)
         {
-            if (drink is Sodasaurus soda)
+            if (combo == null)
             {
-                NavigationService.Navigate(new CustomizeFlavor(soda));
+                if (drink is Sodasaurus soda)
+                {
+                    NavigationService.Navigate(new CustomizeFlavor(soda));
+                }
+            }
+            else
+            {
+                if (combo.Drink is Sodasaurus soda)
+                {
+                    NavigationService.Navigate(new CustomizeFlavor(soda));
+                }
             }
         }
 
@@ -206,9 +293,22 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Decaf_Click(object sender, RoutedEventArgs e)
         {
-            if (drink is JurassicJava java)
+            if (combo == null)
             {
-                java.Decaf = true;
+                if (drink is JurassicJava java)
+                {
+                    java.Decaf = true;
+
+                }
+            }
+            else
+            {
+                if (combo.Drink is JurassicJava java)
+                {
+                    java.Decaf = true;
+
+                }
+
             }
         }
 
@@ -219,9 +319,21 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Sweet_Click(object sender, RoutedEventArgs e)
         {
-            if (drink is Tyrannotea tea)
+            if (combo == null)
             {
+                if (drink is Tyrannotea tea)
+                {
                     tea.AddSugar();
+
+                }
+            }
+            else
+            {
+                if (combo.Drink is Tyrannotea tea)
+                {
+                    tea.AddSugar();
+
+                }
 
             }
         }
@@ -233,21 +345,43 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void HoldIce_Click(object sender, RoutedEventArgs e)
         {
-            if (drink is Tyrannotea tea)
+            if (combo == null)
             {
-                tea.HoldIce();
+                if (drink is Tyrannotea tea)
+                {
+                    tea.HoldIce();
+                }
+                else if (drink is Water w)
+                {
+                    w.HoldIce();
+                }
+                else if (drink is Sodasaurus soda)
+                {
+                    soda.HoldIce();
+                }
+                else if (drink is JurassicJava java)
+                {
+                    java.AddIce();
+                }
             }
-            else if (drink is Water w)
+            else
             {
-                w.HoldIce();
-            }
-            else if (drink is Sodasaurus soda)
-            {
-                soda.HoldIce();
-            }
-            else if (drink is JurassicJava java)
-            {
-                java.AddIce();
+                if (combo.Drink is Tyrannotea tea)
+                {
+                    tea.HoldIce();
+                }
+                else if (combo.Drink is Water w)
+                {
+                    w.HoldIce();
+                }
+                else if (combo.Drink is Sodasaurus soda)
+                {
+                    soda.HoldIce();
+                }
+                else if (combo.Drink is JurassicJava java)
+                {
+                    java.AddIce();
+                }
             }
         }
 
@@ -258,9 +392,19 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void IceButton_Click(object sender, RoutedEventArgs e)
         {
-            if (drink != null)
+            if (combo == null)
             {
-                drink.HoldIce();
+                if (drink != null)
+                {
+                    drink.HoldIce();
+                }
+            }
+            else
+            {
+                if (combo.Drink != null)
+                {
+                    combo.Drink.HoldIce();
+                }
             }
 
         }
@@ -272,15 +416,29 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void LemonButton_Click(object sender, RoutedEventArgs e)
         {
-            if (drink is Water w)
+            if (combo == null)
             {
+                if (drink is Water w)
+                {
                     w.AddLemon();
-                
-            }
-            else if (drink is Tyrannotea tea)
-            {
+                }
+                else if (drink is Tyrannotea tea)
+                {
                     tea.AddLemon();
+                }
             }
+            else
+            {
+                if (combo.Drink is Water w)
+                {
+                    w.AddLemon();
+                }
+                else if (combo.Drink is Tyrannotea tea)
+                {
+                    tea.AddLemon();
+                }
+            }
+            
         }
 
         /// <summary>

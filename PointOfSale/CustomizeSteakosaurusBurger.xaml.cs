@@ -29,6 +29,11 @@ namespace PointOfSale
         private SteakosaurusBurger borgar;
 
         /// <summary>
+        /// Private backing combo.
+        /// </summary>
+        private CretaceousCombo combo;
+
+        /// <summary>
         /// Constructor which initializes the private backing variable.
         /// </summary>
         /// <param name="sender"></param>
@@ -40,13 +45,34 @@ namespace PointOfSale
         }
 
         /// <summary>
+        /// Constructor which initializes the private backing variable.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public CustomizeSteakosaurusBurger(CretaceousCombo c)
+        {
+            InitializeComponent();
+            this.combo = c;
+        }
+
+        /// <summary>
         /// Holds the specified addition from the entree.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void HoldPickleButton_Click(object sender, RoutedEventArgs e)
         {
-            this.borgar.HoldPickle();
+            if (combo == null)
+            {
+                this.borgar.HoldPickle();
+            }
+            else
+            {
+                if (combo.Entree is SteakosaurusBurger s)
+                {
+                    s.HoldPickle();
+                }
+            }
         }
 
         /// <summary>
@@ -56,7 +82,17 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void HoldBunButton_Click(object sender, RoutedEventArgs e)
         {
-            this.borgar.HoldBun();
+            if (combo == null)
+            {
+                this.borgar.HoldBun();
+            }
+            else
+            {
+                if (combo.Entree is SteakosaurusBurger s)
+                {
+                    s.HoldBun();
+                }
+            }
         }
 
         /// <summary>
@@ -66,7 +102,17 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void HoldKetchupButton_Click(object sender, RoutedEventArgs e)
         {
-            this.borgar.HoldKetchup();
+            if (combo == null)
+            {
+                this.borgar.HoldKetchup();
+            }
+            else
+            {
+                if (combo.Entree is SteakosaurusBurger s)
+                {
+                    s.HoldKetchup();
+                }
+            }
         }
 
         /// <summary>
@@ -76,7 +122,17 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void HoldMustardButton_Click(object sender, RoutedEventArgs e)
         {
-            this.borgar.HoldMustard();
+            if (combo == null)
+            {
+                this.borgar.HoldMustard();
+            }
+            else
+            {
+                if (combo.Entree is SteakosaurusBurger s)
+                {
+                    s.HoldMustard();
+                }
+            }
         }
 
         /// <summary>

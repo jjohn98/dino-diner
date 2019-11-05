@@ -29,6 +29,11 @@ namespace PointOfSale
         private PrehistoricPBJ pbj = new PrehistoricPBJ();
 
         /// <summary>
+        /// Private backing combo;
+        /// </summary>
+        private CretaceousCombo combo;
+
+        /// <summary>
         /// Constructor which initializes the private backing variable.
         /// </summary>
         /// <param name="sender"></param>
@@ -40,13 +45,33 @@ namespace PointOfSale
         }
 
         /// <summary>
+        /// Constructor which initializes the private backing combo.
+        /// </summary>
+        /// <param name="c"></param>
+        public CustomizePrehistoricPBJ(CretaceousCombo c)
+        {
+            InitializeComponent();
+            this.combo = c;
+        }
+
+        /// <summary>
         /// Holds the specified addition from the entree.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void HoldPeanutButterButton_Click(object sender, RoutedEventArgs e)
         {
-            this.pbj.HoldPeanutButter();
+            if (combo == null)
+            {
+                this.pbj.HoldPeanutButter();
+            }
+            else
+            {
+                if (combo.Entree is PrehistoricPBJ sandwich)
+                {
+                    sandwich.HoldPeanutButter();
+                }
+            }
         }
 
         /// <summary>
@@ -56,7 +81,17 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void HoldJellyButton_Click(object sender, RoutedEventArgs e)
         {
-            this.pbj.HoldJelly();
+            if (combo == null)
+            {
+                this.pbj.HoldJelly();
+            }
+            else
+            {
+                if (combo.Entree is PrehistoricPBJ sandwich)
+                {
+                    sandwich.HoldJelly();
+                }
+            }
         }
 
         /// <summary>

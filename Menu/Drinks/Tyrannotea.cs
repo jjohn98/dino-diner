@@ -137,12 +137,12 @@ namespace DinoDiner.Menu
             if (this.Ice == true)
             {
                 this.Ice = false;
-                Ingredients.Remove("Ice");
+                ingredients.Remove("Ice");
             }
             else
             {
                 this.Ice = true;
-                Ingredients.Add("Ice");
+                ingredients.Add("Ice");
             }
             NotifyOfPropertyChanged("Special");
             NotifyOfPropertyChanged("Ingredients");

@@ -29,6 +29,11 @@ namespace PointOfSale
         private PterodactylWings wings;
 
         /// <summary>
+        /// Private backing combo.
+        /// </summary>
+        private CretaceousCombo combo;
+
+        /// <summary>
         /// Constructor which initializes the private backing variable.
         /// </summary>
         /// <param name="sender"></param>
@@ -40,13 +45,33 @@ namespace PointOfSale
         }
 
         /// <summary>
+        /// Constructor which initializes the private backing combo.
+        /// </summary>
+        /// <param name="c"></param>
+        public CustomizePterodactylWings(CretaceousCombo c)
+        {
+            InitializeComponent();
+            this.combo = c;
+        }
+
+        /// <summary>
         /// Holds the specified addition from the entree.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void HoldWingSauceButton_Click(object sender, RoutedEventArgs e)
         {
-            wings.HoldSauce();
+            if (combo == null)
+            {
+                this.wings.HoldSauce();
+            }
+            else
+            {
+                if (combo.Entree is PterodactylWings w)
+                {
+                    w.HoldSauce();
+                }
+            }
         }
 
         /// <summary>
