@@ -14,6 +14,11 @@ body {
 
 .menu-item 
 {
-    display: grid;
+    border: 1px solid black;
+    padding: 10px;
 }
 
+.price-display 
+{
+    font-weight: bold;
+}
