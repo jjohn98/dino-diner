@@ -7,7 +7,8 @@
 
 <h1>Menu</h1>
 
-
+<div class="menudisplay">
+    <div class="itemdisplay">
 <h2>Combos</h2>
 @foreach (IMenuItem item in Model.menu.AvailableCombos)
 {
@@ -62,4 +63,69 @@
         }
     </div>
 }
+</div>
+    <form>
+        <input type="text">
+        <input type="submit" value="Search">
+        <input type="submit" value="Apply Filter(s)">
+        <div class="checkbox-list">
+            <label>
+                <input type="checkbox" name="combobox" value="Combos">Combos
+            </label>
+            <label>
+                <input type="checkbox" name="entreebox" value="Entrees">Entrees
+            </label>
+            <label>
+                <input type="checkbox" name="sidebox" value="Sides">Sides
+            </label>
+            <label>
+                <input type="checkbox" name="drinkbox" value="Drinks">Drinks
+            </label>
+            </div>
 
+        <h4>
+            <label>
+                Min
+                <input type="number" min="0" max="10" step="0.01" name="minPrice" value="@Model.minPrice">
+            </label>
+            <label>
+                Max
+                <input type="number" min="0" max="10" step="0.01" name="maxPrice" value="@Model.maxPrice">
+            </label>
+        </h4>
+
+        <h5 class="checkbox-list">
+            Excluding Ingredients:
+            <label>
+                <input type="checkbox" name="buncheckbox" value="Whole-Wheat Bun">Whole-Wheat Bun
+            </label>
+            <label>
+                <input type="checkbox" name="peanutbuttercheckbox" value="Peanut Butter">Peanut Butter
+            </label>
+            <label>
+                <input type="checkbox" name="Jellycheckbox" value="Jelly">Jelly
+            </label>
+            <label>
+                <input type="checkbox" name="bratcheckbox" value="Bratwurst">Bratwurst
+            </label>
+            <label>
+                <input type="checkbox" name="onioncheckbox" value="Onions">Onions
+            </label>
+            <label>
+                <input type="checkbox" name="picklecheckbox" value="Pickles">Pickles
+            </label>
+            <label>
+                <input type="checkbox" name="pepperscheckbox" value="Peppers">Peppers
+            </label>
+            <label>
+                <input type="checkbox" name="ketchupcheckbox" value="Ketchup">Ketchup
+            </label>
+            <label>
+                <input type="checkbox" name="mustardcheckbox" value="Mustard">Mustard
+            </label>
+            <label>
+                <input type="checkbox" name="mayocheckbox" value="Mayo">Mayo
+            </label>
+        </h5>
+    </form>
+</div>

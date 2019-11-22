@@ -22,3 +22,19 @@ body {
 {
     font-weight: bold;
 }
+
+.menudisplay {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.itemdisplay 
+{
+
+}
+
+.checkbox-list {
+    display: flex;
+    flex-direction: column;
+}
