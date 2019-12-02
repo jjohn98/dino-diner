@@ -9,62 +9,63 @@
 
 <div class="menudisplay">
     <div class="itemdisplay">
-<h2>Combos</h2>
-@foreach (IMenuItem item in Model.menu.AvailableCombos)
-{
-<div class="menu-item">
-    @item.ToString()
-    <div class="price-display">Price: @item.Price, Calories: @item.Calories</div>
-    @foreach (string ingredient in item.Ingredients)
-    {
-        <div>@ingredient</div>
-    }
-</div>
-}
-
-
-<h2>Entrees</h2>
-@foreach (IMenuItem item in Model.menu.AvailableEntrees)
-{
-<div class="menu-item">
-    @item.ToString()
-    <div class="price-display">Price: @item.Price, Calories: @item.Calories</div>
-    @foreach (string ingredient in item.Ingredients)
-    {
-        <div>@ingredient</div>
-    }
-</div>
-}
-
-
-<h2>Sides</h2>
-@foreach (IMenuItem item in Model.menu.AvailableSides)
-{
-<div class="menu-item">
-    @item.ToString()
-    <div class="price-display">Price: @item.Price, Calories: @item.Calories</div>
-    @foreach (string ingredient in item.Ingredients)
-    {
-        <div>@ingredient</div>
-    }
-</div>
-}
-
-
-<h2>Drinks</h2>
-@foreach (IMenuItem item in Model.menu.AvailableDrinks)
-{
-    <div class="menu-item">
-        @item.ToString()
-        <div class="price-display">Price: @item.Price, Calories: @item.Calories</div>
-        @foreach (string ingredient in item.Ingredients)
+        <h2>Combos</h2>
+        @foreach (IMenuItem item in Model.menu.AvailableCombos)
         {
-            <div>@ingredient</div>
+        <div class="menu-item">
+            @item.ToString()
+            <div class="price-display">Price: @item.Price, Calories: @item.Calories</div>
+            @foreach (string ingredient in item.Ingredients)
+            {
+                <div>@ingredient</div>
+            }
+        </div>
+        }
+
+
+        <h2>Entrees</h2>
+        @foreach (IMenuItem item in Model.menu.AvailableEntrees)
+        {
+        <div class="menu-item">
+            @item.ToString()
+            <div class="price-display">Price: @item.Price, Calories: @item.Calories</div>
+            @foreach (string ingredient in item.Ingredients)
+            {
+                <div>@ingredient</div>
+            }
+        </div>
+        }
+
+
+        <h2>Sides</h2>
+        @foreach (IMenuItem item in Model.menu.AvailableSides)
+        {
+        <div class="menu-item">
+            @item.ToString()
+            <div class="price-display">Price: @item.Price, Calories: @item.Calories</div>
+            @foreach (string ingredient in item.Ingredients)
+            {
+                <div>@ingredient</div>
+            }
+        </div>
+        }
+
+
+        <h2>Drinks</h2>
+        @foreach (IMenuItem item in Model.menu.AvailableDrinks)
+        {
+            <div class="menu-item">
+                @item.ToString()
+                <div class="price-display">Price: @item.Price, Calories: @item.Calories</div>
+                @foreach (string ingredient in item.Ingredients)
+                {
+                    <div>@ingredient</div>
+                }
+            </div>
         }
     </div>
-}
-</div>
-    <form>
+
+    <form method="post">
         <input type="text">
         <input type="submit" value="Search">
         <input type="submit" value="Apply Filter(s)">

@@ -27,6 +27,16 @@ body {
     display: flex;
     flex-direction: row;
     width: 100vw;
+    justify-content: space-between;
+}
+
+form {
+    width: 40vw;
+    position: fixed;
+    left: 60vw;
+    max-height: 90vh;
+    overflow-y: scroll;
+    
 }
 
 .itemdisplay 
