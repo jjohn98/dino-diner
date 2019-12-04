@@ -42,21 +42,25 @@ namespace Website.Pages
         /// <summary>
         /// 
         /// </summary>
+        
         public List<IMenuItem> entrees { get; set; } = null;
 
         /// <summary>
         /// 
         /// </summary>
+        
         public List<IMenuItem> sides { get; set; } = null;
 
         /// <summary>
         /// 
         /// </summary>
+        
         public List<IMenuItem> drinks { get; set; } = null;
 
         /// <summary>
         /// 
         /// </summary>
+        
         public List<IMenuItem> combos { get; set; } = null;
 
         /// <summary>
@@ -114,7 +118,7 @@ namespace Website.Pages
             drinks = menu.AvailableDrinks;
         }
 
-        public void OnPost() 
+        public void OnPost()
         {
             if (menu == null) 
             {

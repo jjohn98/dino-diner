@@ -182,7 +182,7 @@ namespace DinoDiner.Menu
 
             foreach (IMenuItem item in menuItems)
             {
-                if (item.Price >= maxPrice)
+                if (item.Price <= maxPrice)
                 {
                     searchResults.Add(item);
                 }
