@@ -10,123 +10,118 @@
 <div class="menudisplay">
     <div class="itemdisplay">
         <h2>Combos</h2>
-        @foreach (IMenuItem item in Model.menu.AvailableCombos)
+        @foreach (IMenuItem item in Model.combos)
         {
         <div class="menu-item">
             @item.ToString()
             <div class="price-display">Price: @item.Price, Calories: @item.Calories</div>
+            <ul>
             @foreach (string ingredient in item.Ingredients)
             {
-                <div>@ingredient</div>
+                <li>@ingredient</li>
             }
+            </ul>
         </div>
         }
 
 
         <h2>Entrees</h2>
-        @foreach (IMenuItem item in Model.menu.AvailableEntrees)
+        @foreach (IMenuItem item in Model.entrees)
         {
-        <div class="menu-item">
-            @item.ToString()
-            <div class="price-display">Price: @item.Price, Calories: @item.Calories</div>
+    <div class="menu-item">
+        @item.ToString()
+        <div class="price-display">Price: @item.Price, Calories: @item.Calories</div>
+        <ul>
             @foreach (string ingredient in item.Ingredients)
             {
-                <div>@ingredient</div>
+                <li>@ingredient</li>
             }
-        </div>
+        </ul>
+    </div>
         }
 
 
         <h2>Sides</h2>
-        @foreach (IMenuItem item in Model.menu.AvailableSides)
+        @foreach (IMenuItem item in Model.sides)
         {
-        <div class="menu-item">
-            @item.ToString()
-            <div class="price-display">Price: @item.Price, Calories: @item.Calories</div>
+    <div class="menu-item">
+        @item.ToString()
+        <div class="price-display">Price: @item.Price, Calories: @item.Calories</div>
+        <ul>
             @foreach (string ingredient in item.Ingredients)
             {
-                <div>@ingredient</div>
+                <li>@ingredient</li>
             }
-        </div>
+        </ul>
+    </div>
         }
 
 
         <h2>Drinks</h2>
-        @foreach (IMenuItem item in Model.menu.AvailableDrinks)
+        @foreach (IMenuItem item in Model.drinks)
         {
-            <div class="menu-item">
-                @item.ToString()
-                <div class="price-display">Price: @item.Price, Calories: @item.Calories</div>
-                @foreach (string ingredient in item.Ingredients)
-                {
-                    <div>@ingredient</div>
-                }
-            </div>
+    <div class="menu-item">
+        @item.ToString()
+        <div class="price-display">Price: @item.Price, Calories: @item.Calories</div>
+        <ul>
+            @foreach (string ingredient in item.Ingredients)
+            {
+                <li>@ingredient</li>
+            }
+        </ul>
+    </div>
         }
     </div>
 
     <form method="post">
-        <input type="text">
+        <input id="search" name="search" type="text" value="@Model.search">
         <input type="submit" value="Search">
         <input type="submit" value="Apply Filter(s)">
         <div class="checkbox-list">
+            <h3>Filter by Type</h3>
             <label>
-                <input type="checkbox" name="combobox" value="Combos">Combos
+                <input type="checkbox" value="Combo" name="menuCategory"
+                       checked="@Model.menuCategory.Contains("Combo")" />
+                Combo
             </label>
             <label>
-                <input type="checkbox" name="entreebox" value="Entrees">Entrees
+                <input type="checkbox" value="Entree" name="menuCategory"
+                       checked="@Model.menuCategory.Contains("Entree")" />
+                Entree
             </label>
             <label>
-                <input type="checkbox" name="sidebox" value="Sides">Sides
+                <input type="checkbox" value="Side" name="menuCategory"
+                       checked="@Model.menuCategory.Contains("Side")" />
+                Side
             </label>
             <label>
-                <input type="checkbox" name="drinkbox" value="Drinks">Drinks
+                <input type="checkbox" value="Drink" name="menuCategory"
+                       checked="@Model.menuCategory.Contains("Drink")" />
+                Drink
             </label>
-            </div>
+        </div>
 
-        <h4>
+        <h4>Filter By Price </h4>
             <label>
                 Min
-                <input type="number" min="0" max="10" step="0.01" name="minPrice" value="@Model.minPrice">
+                <input type="number" min="0" max="15" step="0.01" name="minPrice" value="@Model.minPrice">
             </label>
             <label>
                 Max
-                <input type="number" min="0" max="10" step="0.01" name="maxPrice" value="@Model.maxPrice">
+                <input type="number" min="0" max="15" step="0.01" name="maxPrice" value="@Model.maxPrice">
             </label>
-        </h4>
+        
 
         <h5 class="checkbox-list">
             Excluding Ingredients:
+            @foreach (var ingredient in Model.menu.PossibleIngredients)
+                {
             <label>
-                <input type="checkbox" name="buncheckbox" value="Whole-Wheat Bun">Whole-Wheat Bun
+                <input type="checkbox" class="exclude-ingredient" value="@ingredient" name="excludedIngredients"
+                       checked="@Model.excludedIngredients.Contains(ingredient)" />
+                @ingredient
             </label>
-            <label>
-                <input type="checkbox" name="peanutbuttercheckbox" value="Peanut Butter">Peanut Butter
-            </label>
-            <label>
-                <input type="checkbox" name="Jellycheckbox" value="Jelly">Jelly
-            </label>
-            <label>
-                <input type="checkbox" name="bratcheckbox" value="Bratwurst">Bratwurst
-            </label>
-            <label>
-                <input type="checkbox" name="onioncheckbox" value="Onions">Onions
-            </label>
-            <label>
-                <input type="checkbox" name="picklecheckbox" value="Pickles">Pickles
-            </label>
-            <label>
-                <input type="checkbox" name="pepperscheckbox" value="Peppers">Peppers
-            </label>
-            <label>
-                <input type="checkbox" name="ketchupcheckbox" value="Ketchup">Ketchup
-            </label>
-            <label>
-                <input type="checkbox" name="mustardcheckbox" value="Mustard">Mustard
-            </label>
-            <label>
-                <input type="checkbox" name="mayocheckbox" value="Mayo">Mayo
-            </label>
+                }
         </h5>
     </form>
 </div>

@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace DinoDiner.Menu
 {
@@ -106,5 +107,121 @@ namespace DinoDiner.Menu
 
             return output;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<string> PossibleIngredients
+        {
+            get 
+            {
+                HashSet<string> ingredients = new HashSet<string>();
+
+                foreach (IMenuItem item in AvailableMenuItems) 
+                {
+                    ingredients.UnionWith(item.Ingredients);
+                }
+
+                List<string> filteredingredients = ingredients.OrderBy(ingredient => ingredient).ToList();
+
+                return filteredingredients;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="menuItems"></param>
+        /// <param name="search"></param>
+        /// <returns></returns>
+        public List<IMenuItem> Search(List<IMenuItem> menuItems, string search) 
+        {
+            List<IMenuItem> searchResults = new List<IMenuItem>();
+
+            foreach (IMenuItem item in menuItems) 
+            {
+                if (item.ToString().ToLower().Contains(search.ToLower())) 
+                {
+                    searchResults.Add(item);
+                }
+            }
+
+            return searchResults;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="menuItems"></param>
+        /// <param name="minPrice"></param>
+        /// <returns></returns>
+        public List<IMenuItem> FilterByMinPrice(List<IMenuItem> menuItems, double minPrice) 
+        {
+            List<IMenuItem> searchResults = new List<IMenuItem>();
+
+            foreach (IMenuItem item in menuItems)
+            {
+                if (item.Price >= minPrice)
+                {
+                    searchResults.Add(item);
+                }
+            }
+
+            return searchResults;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="menuItems"></param>
+        /// <param name="maxPrice"></param>
+        /// <returns></returns>
+        public List<IMenuItem> FilterByMaxPrice(List<IMenuItem> menuItems, double maxPrice)
+        {
+            List<IMenuItem> searchResults = new List<IMenuItem>();
+
+            foreach (IMenuItem item in menuItems)
+            {
+                if (item.Price >= maxPrice)
+                {
+                    searchResults.Add(item);
+                }
+            }
+
+            return searchResults;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="menuItems"></param>
+        /// <param name="excludedIngredients"></param>
+        /// <returns></returns>
+        public List<IMenuItem> FilterByIngredients(List<IMenuItem> menuItems, List<string> excludedIngredients) 
+        {
+            List<IMenuItem> searchResults = new List<IMenuItem>();
+
+            foreach (IMenuItem item in menuItems) 
+            {
+                bool flag = true;
+
+                foreach (string ingredient in excludedIngredients) 
+                {
+                    if (item.Ingredients.Contains(ingredient)) 
+                    {
+                        flag = false;
+                        break;
+                    }
+                }
+
+                if (flag) 
+                {
+                    searchResults.Add(item);
+                }
+            }
+
+            return searchResults;
+        }
+
     }
 }

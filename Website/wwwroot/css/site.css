@@ -32,9 +32,7 @@ body {
 
 form {
     width: 40vw;
-    position: fixed;
     left: 60vw;
-    max-height: 90vh;
     overflow-y: scroll;
     
 }
